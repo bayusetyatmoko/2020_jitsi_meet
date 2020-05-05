@@ -1,13 +1,13 @@
 # 2020_jitsi_meet
 How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 
-# Case 01 - Install Jitsi Meet on O/S Centos 7 (via docker) 
-# a. Prepare Centos Repo & App
+# Case 1 - Install Jitsi Meet on O/S Centos 7 (via docker) 
+# 1.1. Prepare Centos Repo & App
 sudo yum check-update <br>
 sudo yum install nano python3 curl elinks <br>
 sudo yum install git <br>
 
-# b. Prepare Hosts & Hostname
+# 1.2. Prepare Hosts & Hostname
 sudo nano /etc/hosts <br>
 127.0.0.1	localhost <br>
 #--- Change the setting below to suit your condition <br>
@@ -15,9 +15,15 @@ sudo nano /etc/hosts <br>
 <br>
 #--- Change the command below to suit your condition <br>
 sudo hostnamectl set-hostname vpsmeet.idjvnix.com <br>
-
-
-
+<br>
+sudo hostnamectl status <br>
+<br>
+hostname <br>
+vpsmeet.idjvnix.com <br>
+<br>
+ping vpsmeet <br>
+ping vpsmeet.idjvnix.com <br>
+<br>
 
 
 
