@@ -47,7 +47,7 @@ date <br>
 Thu Apr 30 06:11:58 WIB 2020 <br>
 <br>
 
-# 1.04. Prepare Docker Repo, Install Docker & Docker Compose
+# 1.04. Prepare Docker Repo, Install Docker & Install Docker Compose
 sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine <br>
 <br>
 sudo yum check-update <br>
