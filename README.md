@@ -46,6 +46,14 @@ date <br>
 Thu Apr 30 06:11:58 WIB 2020 <br>
 <br>
 
+# 1.04. Prepare Jistsi Repo
+sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine <br>
+<br>
+sudo yum check-update <br>
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2 <br>
+
+
+
 
 
 # Refference :
