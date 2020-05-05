@@ -58,6 +58,7 @@ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/dock
 sudo yum check-update <br>
 sudo yum install docker-ce docker-ce-cli containerd.io <br>
 sudo systemctl start docker <br>
+sudo systemctl status docker <br>
 <br>
 sudo usermod -aG docker bayu <br>
 newgrp docker <br>
