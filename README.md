@@ -95,7 +95,7 @@ LETSENCRYPT_EMAIL=bayuzzz@gmail.com <br>
 DISABLE_HTTPS=0 <br>
 ENABLE_HTTP_REDIRECT=1 <br>
 <br>
-#--- To stop command below, using ctrl+c <br>
+#--- To stop command below, using "ctrl+c" <br>
 docker-compose up <br>
 <br>
 #--- To stop command below (as daemon), using ctrl+c <br>
