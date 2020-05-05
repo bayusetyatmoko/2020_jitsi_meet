@@ -108,7 +108,7 @@ docker-compose up -d <br>
 <br>
 
 # Notes :
-- If you edit file ".env" then you must remove ~/.jitsi-meet-cfg the recreate ~/.jitsi-meet-cfg 
+- If you edit file ".env" then you must remove ~/.jitsi-meet-cfg then recreate ~/.jitsi-meet-cfg 
 
 
 # Refference :
