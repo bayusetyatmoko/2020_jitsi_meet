@@ -71,6 +71,37 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose <br>
 docker-compose version <br>
 <br>
 
+# 1.05. Install Jitsi Meet (via Docker)
+git clone https://github.com/jitsi/docker-jitsi-meet && cd docker-jitsi-meet <br>
+<br>
+pwd <br>
+/home/bayu/docker-jitsi-meet <br>
+<br>
+cp env.example .env <br>
+./gen-passwords.sh <br>
+mkdir -p ~/.jitsi-meet-cfg/{web/letsencrypt,transcripts,prosody,jicofo,jvb,jigasi,jibri} <br>
+<br>
+nano .env <br>
+HTTP_PORT=80 <br>
+HTTPS_PORT=443 <br>
+TZ=Asia/Jakarta <br>
+#--- Change the setting below to suit your condition <br>
+PUBLIC_URL=https://vpsmeet.idjvnix.com <br>
+ENABLE_LETSENCRYPT=1 <br>
+#--- Change the setting below to suit your condition <br>
+LETSENCRYPT_DOMAIN=vpsmeet.idjvnix.com <br>
+#--- Change the setting below to suit your condition <br>
+LETSENCRYPT_EMAIL=bayuzzz@gmail.com <br>
+DISABLE_HTTPS=0 <br>
+ENABLE_HTTP_REDIRECT=1 <br>
+<br>
+#--- To stop command below, using ctrl+c <br>
+docker-compose up <br>
+<br>
+#--- To stop command below (as daemon), using ctrl+c <br>
+docker-compose up -d <br>
+<br>
+
 
 
 # Refference :
