@@ -10,9 +10,11 @@ sudo yum install git <br>
 # b. Prepare Hosts & Hostname
 sudo nano /etc/hosts <br>
 127.0.0.1	localhost <br>
-#--- Change the settings below to suit your condition <br>
+#--- Change the setting below to suit your condition <br>
 139.99.90.116 	    vpsmeet.idjvnix.com      vpsmeet <br>
-
+<br>
+#--- Change the command below to suit your condition <br>
+sudo hostnamectl set-hostname vpsmeet.idjvnix.com <br>
 
 
 
