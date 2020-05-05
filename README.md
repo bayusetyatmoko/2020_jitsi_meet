@@ -103,10 +103,12 @@ ENABLE_HTTP_REDIRECT=1 <br>
 #--- To stop command below, using "ctrl+c" <br>
 docker-compose up <br>
 <br>
-#--- To stop command below (as daemon), using ctrl+c <br>
+#--- To stop command below (as daemon), using "docker-compose down" <br>
 docker-compose up -d <br>
 <br>
 
+# Notes :
+- If you edit file ".env" then you must remove ~/.jitsi-meet-cfg the recreate ~/.jitsi-meet-cfg 
 
 
 # Refference :
