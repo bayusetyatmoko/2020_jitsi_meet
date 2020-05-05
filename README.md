@@ -3,9 +3,10 @@ How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 
 # Case 01 - Install Jitsi Meet on O/S Centos 7 (via docker) 
 # Prepare Centos Repo & App
-sudo yum check-update
-sudo yum install nano python3 curl elinks
-sudo yum install git
+sudo yum check-update <br>
+sudo yum install nano python3 curl elinks <br>
+sudo yum install git <br>
+
 
 
 
