@@ -2,12 +2,12 @@
 How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 
 # Case 1 - Install Jitsi Meet on O/S Centos 7 (via docker) 
-# 1.1. Prepare Centos Repo & App
+# 1.01. Prepare Centos Repo & App
 sudo yum check-update <br>
 sudo yum install nano python3 curl elinks <br>
 sudo yum install git <br>
 
-# 1.2. Prepare Hosts & Hostname
+# 1.02. Prepare Hosts & Hostname
 sudo nano /etc/hosts <br>
 127.0.0.1	localhost <br>
 #--- Change the setting below to suit your condition <br>
@@ -21,9 +21,17 @@ sudo hostnamectl status <br>
 hostname <br>
 vpsmeet.idjvnix.com <br>
 <br>
+#--- Change the command below to suit your condition <br>
 ping vpsmeet <br>
 ping vpsmeet.idjvnix.com <br>
 <br>
+
+# 1.03. Prepare Timezone, Date & NTP
+sudo timedatectl list-timezones |grep Asia <br>
+sudo timedatectl set-timezone Asia/Jakarta <br>
+sudo timedatectl set-ntp on <br>
+sudo systemctl restart systemd-timedated.service <br>
+
 
 
 
