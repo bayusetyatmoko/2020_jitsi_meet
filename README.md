@@ -106,6 +106,16 @@ docker-compose up <br>
 #--- To stop command below (as daemon), using "docker-compose down" <br>
 docker-compose up -d <br>
 <br>
+docker-compose ps -a <br>
+           Name               Command   State                        Ports                        <br>
+------------------------------------------------------------------------------------------------  <br>
+docker-jitsi-meet_jicofo_1    /init     Up                                                        <br>
+docker-jitsi-meet_jvb_1       /init     Up      0.0.0.0:10000->10000/udp, 0.0.0.0:4443->4443/tcp  <br>
+docker-jitsi-meet_prosody_1   /init     Up      5222/tcp, 5269/tcp, 5280/tcp, 5347/tcp            <br>
+docker-jitsi-meet_web_1       /init     Up      0.0.0.0:443->443/tcp, 0.0.0.0:80->80/tcp          <br>
+<br>
+
+
 
 # Notes :
 - If you edit file ".env" then you must remove ~/.jitsi-meet-cfg then recreate ~/.jitsi-meet-cfg 
