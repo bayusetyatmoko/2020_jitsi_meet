@@ -48,7 +48,6 @@ Thu Apr 30 06:11:58 WIB 2020 <br>
 
 
 
-<br>
 # Refference :
 https://github.com/jitsi/jitsi-meet/blob/master/doc/README.md <br>
 https://github.com/jitsi/jitsi-meet/blob/master/doc/quick-install.md <br>
