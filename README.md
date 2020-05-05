@@ -81,6 +81,10 @@ cp env.example .env <br>
 ./gen-passwords.sh <br>
 mkdir -p ~/.jitsi-meet-cfg/{web/letsencrypt,transcripts,prosody,jicofo,jvb,jigasi,jibri} <br>
 <br>
+ls -lah /home/bayu/ |grep jitsi <br>
+drwxrwxr-x  14 bayu bayu 4,0K Apr 30 07:18 docker-jitsi-meet
+drwxrwxr-x   9 bayu bayu 4,0K Apr 30 07:19 .jitsi-meet-cfg
+<br>
 nano .env <br>
 HTTP_PORT=80 <br>
 HTTPS_PORT=443 <br>
