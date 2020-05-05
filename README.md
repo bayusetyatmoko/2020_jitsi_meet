@@ -6,6 +6,7 @@ How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 sudo yum check-update <br>
 sudo yum install nano python3 curl elinks <br>
 sudo yum install git <br>
+<br>
 
 # 1.02. Prepare Hosts & Hostname (FQDN)
 sudo nano /etc/hosts <br>
@@ -46,13 +47,29 @@ date <br>
 Thu Apr 30 06:11:58 WIB 2020 <br>
 <br>
 
-# 1.04. Prepare Jistsi Repo
+# 1.04. Prepare Docker Repo, Install Docker & Docker Compose
 sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine <br>
 <br>
 sudo yum check-update <br>
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2 <br>
-
-
+<br>
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo <br>
+<br>
+sudo yum check-update <br>
+sudo yum install docker-ce docker-ce-cli containerd.io <br>
+sudo systemctl start docker <br>
+<br>
+sudo usermod -aG docker bayu <br>
+newgrp docker <br>
+<br>
+docker version <br>
+<br>
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose <br>
+<br>
+sudo chmod +x /usr/local/bin/docker-compose <br>
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose <br>
+docker-compose version <br>
+<br>
 
 
 
