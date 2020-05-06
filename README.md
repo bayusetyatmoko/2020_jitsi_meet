@@ -4,8 +4,34 @@ How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 # Case 1 - Install Jitsi Meet on O/S Centos 7 (via docker) 
 # 1.01. Prepare Centos Repo & Install Tools
 sudo yum check-update <br>
-sudo yum install nano python3 curl elinks <br>
+sudo yum install nano python3 curl elinks lynx<br>
 sudo yum install git <br>
+<br>
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash <br>
+export NVM_DIR="$HOME/.nvm" <br>
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" <br>
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" <br>
+command -v nvm <br>
+nvm ls-remote <br>
+nvm install v14.2.0 <br>
+node --version <br>
+<br>
+nano app.js <br>
+const http = require('http'); <br>
+const hostname = '0.0.0.0'; <br>
+const port = 3000; <br>
+const server = http.createServer((req, res) => { <br>
+  res.statusCode = 200; <br>
+  res.setHeader('Content-Type', 'text/plain'); <br>
+  res.end('Hello World'); <br>
+}); <br>
+server.listen(port, hostname, () => { <br>
+  console.log(`Server running at http://${hostname}:${port}/`); <br>
+}); <br>
+<br>
+node app.js  <br>
+Server running at http://0.0.0.0:3000/  <br>
+(To Stop Service Nodejs, Using "Ctrl + c") <br>
 <br>
 
 # 1.02. Prepare Hosts & Hostname (FQDN)
