@@ -5,23 +5,21 @@ How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 # 2.01. Prepare Host O/S Centos 7 (Do step 1.01 - 1.04) below, 
 # 2.02. Use Docker Images from https://hub.docker.com/repository/docker/bayusetyatmoko/ub20dev
 
-docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 --privileged -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro  bayusetyatmoko/ub20dev /bin/bash
-
-docker exec -it ub20dev_jitsi_production /bin/bash -c "/etc/init.d/ssh restart && /etc/init.d/php7.4-fpm restart && /etc/init.d/nginx restart"
-
-docker ps -a
-
-netstat -plnt
-
-ssh -p 2222 bayu@localhost
-bayu@localhost's password: 1234567x 
-
-(Don't forget change user bayu passwd & add another sudo user)
-
-bayu@63d8085f7680:~$ sudo apt-get update
-
-cat /etc/apt/sources.list
-
+docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 --privileged -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro  bayusetyatmoko/ub20dev /bin/bash <br>
+<br>
+docker exec -it ub20dev_jitsi_production /bin/bash -c "/etc/init.d/ssh restart && /etc/init.d/php7.4-fpm restart && /etc/init.d/nginx restart" <br>
+<br>
+docker ps -a <br>
+netstat -plnt <br>
+<br>
+ssh -p 2222 bayu@localhost <br>
+bayu@localhost's password: 1234567x <br> 
+<br>
+(Don't forget change user bayu passwd & add another sudo user) <br>
+<br>
+bayu@63d8085f7680:~$ sudo apt-get update <br>
+cat /etc/apt/sources.list <br>
+<br>
 sudo nano /etc/hosts
 
 
