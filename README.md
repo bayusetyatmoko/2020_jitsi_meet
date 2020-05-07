@@ -30,18 +30,14 @@ sudo nano /etc/hosts <br>
 #--- Change the setting below to suit your condition <br>
 139.99.90.116 	    vpsmeet.idjvnix.com      vpsmeet <br>
 <br>
-sudo nano /etc/hostname
+sudo nano /etc/hostname <br>
 #--- Change the command below to suit your condition <br>
-vpsmeet.idjvnix.com
-
-
-
-sudo hostnamectl set-hostname vpsmeet.idjvnix.com <br>
-<br>
-sudo hostnamectl status <br>
-<br>
-hostname <br>
 vpsmeet.idjvnix.com <br>
+<br>
+sudo hostname vpsmeet.idjvnix.com <br>
+<br>
+hostname
+vpsmeet.idjvnix.com
 <br>
 #--- Change the command below to suit your condition <br>
 ping vpsmeet <br>
