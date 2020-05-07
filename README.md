@@ -22,7 +22,7 @@ bayu@localhost's password: 1234567x <br>
 <br>
 (Don't forget change user bayu passwd & add another sudo user) <br>
 <br>
-bayu@63d8085f7680:~$ sudo apt-get update <br>
+sudo apt-get update <br>
 cat /etc/apt/sources.list <br>
 <br>
 sudo nano /etc/hosts <br>
