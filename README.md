@@ -44,6 +44,59 @@ ping vpsmeet <br>
 ping vpsmeet.idjvnix.com <br>
 <br>
 
+# 2.03. Generate SSL Cetificate from https://www.sslforfree.com/ or Use Your Own & Cofigure NGINX <br>
+<br>
+bayu@vpsmeet:~$ ls -lh <br>
+total 28K <br>
+-rw-rw-r-- 1 bayu bayu   87 May  8 06:10 KsBBHiqkCFgNPImcl79KWxxRqOakC5FaFpm4VbEdPmE <br>
+-rw-rw-r-- 1 bayu bayu  333 May  6 11:25 app.js <br>
+-rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 ca_bundle.crt <br>
+-rw-rw-r-- 1 bayu bayu 1.9K May  8 06:17 certificate.crt <br>
+-rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 private.key <br>
+-rw-rw-r-- 1 bayu bayu 5.5K May  8 06:19 sslforfree.zip <br>
+<br>
+bayu@vpsmeet:~$ sudo cp certificate.crt /etc/ssl/certs/ <br>
+bayu@vpsmeet:~$ sudo cp private.key /etc/ssl/private/ <br>
+<br>
+sudo nano /etc/nginx/sites-available/default <br>
+server { <br>
+    listen 80 default_server; <br>
+    listen [::]:80 default_server; <br>
+    root /var/www/html; <br>
+    index index.html index.php; <br>
+    server_name _; <br>
+    location / { <br>
+        try_files $uri $uri/ =404; <br>
+    } <br>
+    location ~ \.php$ { <br>
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock; <br>
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; <br>
+        include fastcgi_params; <br>
+        include snippets/fastcgi-php.conf; <br>
+    } <br>
+    return301 https://$server_name$request_uri;  <br>  
+} <br>
+server { <br>
+    listen 443 ssl; <br>
+    listen [::]:443 ssl; <br>
+    ssl_certificate /etc/ssl/certs/certificate.crt; <br>
+    ssl_certificate_key /etc/ssl/private/private.key; <br>
+    root /var/www/htmls; <br>
+    index index.html index.php; <br>
+    server_name _; <br>
+    location / { <br>
+        try_files $uri $uri/ =404; <br>
+    } <br>
+    location ~ \.php$ { <br>
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock; <br>
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; <br>
+        include fastcgi_params; <br>
+        include snippets/fastcgi-php.conf; <br>
+    } <br>
+} <br>
+<br>
+
+
 
 
 # Case 1 - Install Jitsi Meet on Host O/S Centos 7 (via docker compose) 
