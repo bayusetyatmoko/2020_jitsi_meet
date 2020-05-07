@@ -7,9 +7,11 @@ How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 
 docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 --privileged -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro  bayusetyatmoko/ub20dev /bin/bash
 
-netstat -plnt
-
 docker exec -it ub20dev_jitsi_production /bin/bash -c "/etc/init.d/ssh restart && /etc/init.d/php7.4-fpm restart && /etc/init.d/nginx restart"
+
+docker ps -a
+
+netstat -plnt
 
 
 
