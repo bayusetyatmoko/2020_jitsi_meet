@@ -4,7 +4,14 @@ How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 # Case 2 - Install Jitsi Meet on Host O/S Centos 7 (via docker images) 
 # 2.01. Prepare Host O/S Centos 7 (Do step 1.01 - 1.04) below, 
 # 2.02. Use Docker Images from https://hub.docker.com/repository/docker/bayusetyatmoko/ub20dev
-docker run --name=ub20dev_nginxphp -d -it -p 2222:22 -p 80:80 -p 443:443 --privileged -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro  bayusetyatmoko/ub20dev /bin/bash
+
+docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 --privileged -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro  bayusetyatmoko/ub20dev /bin/bash
+
+netstat -plnt
+
+docker exec -it ub20dev_jitsi_production /bin/bash -c "/etc/init.d/ssh restart && /etc/init.d/php7.4-fpm restart && /etc/init.d/nginx restart"
+
+
 
 # Case 1 - Install Jitsi Meet on Host O/S Centos 7 (via docker compose) 
 # 1.01. Prepare Centos Repo & Install Tools
