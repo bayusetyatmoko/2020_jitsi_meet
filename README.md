@@ -13,6 +13,18 @@ docker ps -a
 
 netstat -plnt
 
+ssh -p 2222 bayu@localhost
+bayu@localhost's password: 1234567x 
+
+(Don't forget change user bayu passwd & add another sudo user)
+
+bayu@63d8085f7680:~$ sudo apt-get update
+
+cat /etc/apt/sources.list
+
+sudo nano /etc/hosts
+
+
 
 
 # Case 1 - Install Jitsi Meet on Host O/S Centos 7 (via docker compose) 
