@@ -144,10 +144,10 @@ docker-jitsi-meet_web_1       /init     Up      0.0.0.0:443->443/tcp, 0.0.0.0:80
 
 
 # Notes :
+<br>
 - If you edit file ".env" then you must remove ~/.jitsi-meet-cfg then recreate ~/.jitsi-meet-cfg <br> 
 <br>
 - Backup Source Code & Config Jitsi-Meet Application using this command <br> 
-<br>
 <br>
 sudo tar -czvf backup_20200508_docker-jitsi-meet.tar.gz docker-jitsi-meet/ <br>
 docker-jitsi-meet/ <br>
@@ -430,7 +430,6 @@ sudo tar -czvf backup_20200508_jitsi-meet-cfg.tar.gz .jitsi-meet-cfg/ <br>
 .jitsi-meet-cfg/prosody/config/certs/auth.meet.jitsi.crt <br>
 .jitsi-meet-cfg/prosody/config/prosody.cfg.lua <br>
 .jitsi-meet-cfg/prosody/prosody-plugins-custom/ <br>
-<br>
 <br>
 
 
