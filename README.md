@@ -17,7 +17,9 @@ docker ps -a <br>
 sudo netstat -plnt <br>
 <br>
 ssh -p 2222 bayu@localhost <br>
-bayu@localhost's password: 1234567x <br> 
+...
+bayu@localhost's password: 1234567x <br>
+...
 <br>
 (Don't forget change user bayu passwd & add another sudo user) <br>
 <br>
