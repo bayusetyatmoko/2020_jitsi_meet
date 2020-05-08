@@ -1,9 +1,9 @@
 # 2020_jitsi_meet
 How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 
-# Case 2 - Install Jitsi Meet on Host O/S Centos 7 (via docker images) <br> 
-# 2.01. Prepare Host O/S Centos 7 (Do step 1.01 - 1.04) below, <br>
-# 2.02. Use Docker Images from https://hub.docker.com/repository/docker/bayusetyatmoko/ub20dev <br>
+## Case 2 - Install Jitsi Meet on Host O/S Centos 7 (via docker images) <br> 
+###### 2.01. Prepare Host O/S Centos 7 (Do step 1.01 - 1.04) below, <br>
+###### 2.02. Use Docker Images from https://hub.docker.com/repository/docker/bayusetyatmoko/ub20dev <br>
 <br>
 docker pull bayusetyatmoko/ub20dev <br>
 docker volume create data-jitsi-production <br>
@@ -42,7 +42,7 @@ ping vpsmeet <br>
 ping vpsmeet.idjvnix.com <br>
 <br>
 
-# 2.03. Install Jitsi-Meet & Configure SSL on nginx <br>
+###### 2.03. Install Jitsi-Meet & Configure SSL on nginx <br>
 <br>
 sudo netstat -plnt <br>
 Active Internet connections (only servers) <br>
@@ -117,8 +117,8 @@ Processing triggers for libc-bin (2.31-0ubuntu9) ... <br>
 
 
 
-# Case 1 - Install Jitsi Meet on Host O/S Centos 7 (via docker compose) 
-# 1.01. Prepare Centos Repo & Install Tools
+## Case 1 - Install Jitsi Meet on Host O/S Centos 7 (via docker compose) 
+###### 1.01. Prepare Centos Repo & Install Tools
 sudo yum check-update <br>
 sudo yum install nano python3 curl elinks lynx<br>
 sudo yum install git <br>
@@ -127,6 +127,7 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 export NVM_DIR="$HOME/.nvm" <br>
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" <br>
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" <br>
+<br>
 command -v nvm <br>
 nvm ls-remote <br>
 nvm install v14.2.0 <br>
@@ -150,7 +151,7 @@ Server running at http://0.0.0.0:3000/  <br>
 (To Stop Service Nodejs, Using "Ctrl + c") <br>
 <br>
 
-# 1.02. Prepare Hosts & Hostname (FQDN)
+###### 1.02. Prepare Hosts & Hostname (FQDN)
 sudo nano /etc/hosts <br>
 127.0.0.1	localhost <br>
 #--- Change the setting below to suit your condition <br>
@@ -169,7 +170,7 @@ ping vpsmeet <br>
 ping vpsmeet.idjvnix.com <br>
 <br>
 
-# 1.03. Prepare Timezone, Date & NTP Synchronized
+###### 1.03. Prepare Timezone, Date & NTP Synchronized
 sudo timedatectl list-timezones |grep Asia <br>
 sudo timedatectl set-timezone Asia/Jakarta <br>
 sudo timedatectl set-ntp on <br>
@@ -189,7 +190,7 @@ date <br>
 Thu Apr 30 06:11:58 WIB 2020 <br>
 <br>
 
-# 1.04. Prepare Docker Repo, Install Docker & Install Docker Compose
+###### 1.04. Prepare Docker Repo, Install Docker & Install Docker Compose
 sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine <br>
 <br>
 sudo yum check-update <br>
@@ -214,7 +215,7 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose <br>
 docker-compose version <br>
 <br>
 
-# 1.05. Install Jitsi Meet (via Docker)
+###### 1.05. Install Jitsi Meet (via Docker)
 git clone https://github.com/jitsi/docker-jitsi-meet && cd docker-jitsi-meet <br>
 <br>
 pwd <br>
@@ -259,7 +260,7 @@ docker-jitsi-meet_web_1       /init     Up      0.0.0.0:443->443/tcp, 0.0.0.0:80
 
 
 
-# Notes :
+###### Notes :
 <br>
 - If you edit file ".env" then you must remove ~/.jitsi-meet-cfg then recreate ~/.jitsi-meet-cfg <br> 
 <br>
@@ -549,7 +550,7 @@ sudo tar -czvf backup_20200508_jitsi-meet-cfg.tar.gz .jitsi-meet-cfg/ <br>
 <br>
 
 
-# Refference :
+###### Refference :
 https://github.com/jitsi/jitsi-meet/blob/master/doc/README.md <br>
 https://github.com/jitsi/jitsi-meet/blob/master/doc/quick-install.md <br>
 https://github.com/jitsi/docker-jitsi-meet/blob/master/README.md <br>
