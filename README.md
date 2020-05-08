@@ -34,8 +34,8 @@ vpsmeet.idjvnix.com <br>
 <br>
 sudo hostname vpsmeet.idjvnix.com <br>
 <br>
-hostname
-vpsmeet.idjvnix.com
+hostname <br>
+vpsmeet.idjvnix.com <br>
 <br>
 #--- Change the command below to suit your condition <br>
 ping vpsmeet <br>
