@@ -26,29 +26,11 @@ sudo nano /etc/hosts <br>
 ```
 127.0.0.1	localhost 
 #172.17.0.2     5b502ea004ba  
-#Change the setting below to suit your condition 
+#--- Change the setting below to suit your condition 
 139.99.90.116    vpsmeet.idjvnix.com    vpsmeet 
 ```
 <br>
-```
-```
-sudo nano /etc/hostname <br>
-```
-#--- Change the setting below to suit your condition 
-vpsmeet.idjvnix.com 
-```
-<br>
-sudo hostname vpsmeet.idjvnix.com  <br>
-<br>
-hostname <br>
-```
-vpsmeet.idjvnix.com 
-```
-<br>
-#--- Change the command below to suit your condition <br>
-ping vpsmeet <br>
-ping vpsmeet.idjvnix.com <br>
-<br>
+
 
 **2.03. Install Jitsi-Meet & Configure SSL on nginx** <br>
 sudo netstat -plntu <br>
