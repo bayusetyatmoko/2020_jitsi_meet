@@ -18,16 +18,17 @@ sudo netstat -plnt <br>
 <br>
 ssh -p 2222 bayu@localhost <br>
 ```
-bayu@localhost's password: 1234567x <br>
+bayu@localhost's password: 1234567x
 ```
-<br>
 (Don't forget change user bayu passwd & add another sudo user) <br>
 <br>
 sudo nano /etc/hosts <br>
-127.0.0.1	localhost <br>
-#172.17.0.2     5b502ea004ba <br> 
-#--- Change the setting below to suit your condition <br>
-139.99.90.116    vpsmeet.idjvnix.com    vpsmeet <br>
+```
+127.0.0.1	localhost 
+#172.17.0.2     5b502ea004ba  
+#--- Change the setting below to suit your condition 
+139.99.90.116    vpsmeet.idjvnix.com    vpsmeet 
+```
 <br>
 sudo nano /etc/hostname <br>
 #--- Change the command below to suit your condition <br>
