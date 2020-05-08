@@ -10,25 +10,23 @@ docker volume create data-jitsi-production <br>
 docker volume list <br>
 docker volume inspect data-jitsi-production <br>
 <br>
-docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 --privileged -v data-jitsi-production:/run/dbus/system_bus_socket bayusetyatmoko/ub20dev /bin/bash <br>
+ docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 -p 1000:1000 --privileged -v data-jitsi-production:/run/dbus/system_bus_socket bayusetyatmoko/ub20dev /bin/bash <br>
 <br>
-docker exec -it ub20dev_jitsi_production /bin/bash -c "/etc/init.d/ssh restart && /etc/init.d/php7.4-fpm restart && /etc/init.d/nginx restart" <br>
+docker exec -it ub20dev_jitsi_production /bin/bash -c "/etc/init.d/ssh restart" <br>
 <br>
 docker ps -a <br>
-netstat -plnt <br>
+sudo netstat -plnt <br>
 <br>
 ssh -p 2222 bayu@localhost <br>
 bayu@localhost's password: 1234567x <br> 
 <br>
 (Don't forget change user bayu passwd & add another sudo user) <br>
 <br>
-sudo apt-get update <br>
-cat /etc/apt/sources.list <br>
-<br>
 sudo nano /etc/hosts <br>
 127.0.0.1	localhost <br>
+#172.17.0.2     5b502ea004ba <br> 
 #--- Change the setting below to suit your condition <br>
-139.99.90.116 	    vpsmeet.idjvnix.com      vpsmeet <br>
+139.99.90.116    vpsmeet.idjvnix.com    vpsmeet <br>
 <br>
 sudo nano /etc/hostname <br>
 #--- Change the command below to suit your condition <br>
@@ -44,7 +42,29 @@ ping vpsmeet <br>
 ping vpsmeet.idjvnix.com <br>
 <br>
 
-# 2.03. Generate SSL Cetificate from https://www.sslforfree.com/ or Use Your Own & Cofigure NGINX <br>
+# 2.03. Install Jitsi-Meet & Configure SSL on nginx <br>
+<br>
+netstat -plnt <br>
+Active Internet connections (only servers) <br>
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name  <br>  
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      204/sshd: /usr/sbin <br>
+tcp6       0      0 :::22                   :::*                    LISTEN      204/sshd: /usr/sbin <br>
+<br>
+sudo apt-get update <br>
+sudo apt-get purge nginx  <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br>
 bayu@vpsmeet:~$ ls -lh <br>
 total 28K <br>
@@ -55,46 +75,7 @@ total 28K <br>
 -rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 private.key <br>
 -rw-rw-r-- 1 bayu bayu 5.5K May  8 06:19 sslforfree.zip <br>
 <br>
-bayu@vpsmeet:~$ sudo cp certificate.crt /etc/ssl/certs/ <br>
-bayu@vpsmeet:~$ sudo cp private.key /etc/ssl/private/ <br>
-<br>
-sudo nano /etc/nginx/sites-available/default <br>
-server { <br>
-    listen 80 default_server; <br>
-    listen [::]:80 default_server; <br>
-    root /var/www/html; <br>
-    index index.html index.php; <br>
-    server_name _; <br>
-    location / { <br>
-        try_files $uri $uri/ =404; <br>
-    } <br>
-    location ~ \.php$ { <br>
-        fastcgi_pass unix:/run/php/php7.4-fpm.sock; <br>
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; <br>
-        include fastcgi_params; <br>
-        include snippets/fastcgi-php.conf; <br>
-    } <br>
-    return301 https://$server_name$request_uri;  <br>  
-} <br>
-server { <br>
-    listen 443 ssl; <br>
-    listen [::]:443 ssl; <br>
-    ssl_certificate /etc/ssl/certs/certificate.crt; <br>
-    ssl_certificate_key /etc/ssl/private/private.key; <br>
-    root /var/www/htmls; <br>
-    index index.html index.php; <br>
-    server_name _; <br>
-    location / { <br>
-        try_files $uri $uri/ =404; <br>
-    } <br>
-    location ~ \.php$ { <br>
-        fastcgi_pass unix:/run/php/php7.4-fpm.sock; <br>
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; <br>
-        include fastcgi_params; <br>
-        include snippets/fastcgi-php.conf; <br>
-    } <br>
-} <br>
-<br>
+
 
 
 
