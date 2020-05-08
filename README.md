@@ -30,6 +30,19 @@ sudo nano /etc/hosts <br>
 139.99.90.116    vpsmeet.idjvnix.com    vpsmeet 
 ```
 <br>
+
+<br>
+sudo nano /etc/hosts <br>
+```
+127.0.0.1	localhost 
+#172.17.0.2     5b502ea004ba  
+#--- Change the setting below to suit your condition 
+139.99.90.116    vpsmeet.idjvnix.com    vpsmeet 
+```
+<br>
+
+
+
 sudo nano /etc/hostname <br>
 ```
 xxxx
