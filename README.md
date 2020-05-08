@@ -4,7 +4,6 @@ How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 ## Case 2 - Install Jitsi Meet on Host O/S Centos 7 (via docker images) 
 **2.01. Prepare Host O/S Centos 7 (Do step 1.01 - 1.04) below ...** <br>
 **2.02. Use Docker Images from https://hub.docker.com/repository/docker/bayusetyatmoko/ub20dev** <br>
-<br>
 docker pull bayusetyatmoko/ub20dev <br>
 docker volume create data-jitsi-production <br>
 docker volume list <br>
@@ -42,8 +41,7 @@ ping vpsmeet <br>
 ping vpsmeet.idjvnix.com <br>
 <br>
 
-###### 2.03. Install Jitsi-Meet & Configure SSL on nginx <br>
-<br>
+**2.03. Install Jitsi-Meet & Configure SSL on nginx** <br>
 sudo netstat -plnt <br>
 Active Internet connections (only servers) <br>
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name  <br>  
