@@ -10,7 +10,7 @@ docker volume create data-jitsi-production <br>
 docker volume list <br>
 docker volume inspect data-jitsi-production <br>
 <br>
- docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 -p 1000:1000 --privileged -v data-jitsi-production:/run/dbus/system_bus_socket bayusetyatmoko/ub20dev /bin/bash <br>
+ docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 -p 10000:10000 --privileged -v data-jitsi-production:/run/dbus/system_bus_socket bayusetyatmoko/ub20dev /bin/bash <br>
 <br>
 docker exec -it ub20dev_jitsi_production /bin/bash -c "/etc/init.d/ssh restart" <br>
 <br>
