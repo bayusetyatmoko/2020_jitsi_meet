@@ -44,37 +44,40 @@ ping vpsmeet.idjvnix.com <br>
 
 # 2.03. Install Jitsi-Meet & Configure SSL on nginx <br>
 <br>
-netstat -plnt <br>
+sudo netstat -plnt <br>
 Active Internet connections (only servers) <br>
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name  <br>  
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      204/sshd: /usr/sbin <br>
 tcp6       0      0 :::22                   :::*                    LISTEN      204/sshd: /usr/sbin <br>
 <br>
+sudo apt update <br>
+sudo apt remove nginx php-fpm <br>
+sudo apt autoremove <br>
+<br>
+sudo apt list --upgradable <br>
+sudo apt full-upgrade <br>
+<br>
+echo 'deb https://download.jitsi.org stable/' | sudo tee /etc/apt/sources.list.d/jitsi-stable.list <br>
+wget -qO -  https://download.jitsi.org/jitsi-key.gpg.key | sudo apt-key add - <br>
+sudo apt update <br>
+<br>
+sudo apt-get install apt-transport-https <br>
 sudo apt-get update <br>
-sudo apt-get purge nginx  <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <br>
-bayu@vpsmeet:~$ ls -lh <br>
-total 28K <br>
--rw-rw-r-- 1 bayu bayu   87 May  8 06:10 KsBBHiqkCFgNPImcl79KWxxRqOakC5FaFpm4VbEdPmE <br>
--rw-rw-r-- 1 bayu bayu  333 May  6 11:25 app.js <br>
--rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 ca_bundle.crt <br>
--rw-rw-r-- 1 bayu bayu 1.9K May  8 06:17 certificate.crt <br>
--rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 private.key <br>
--rw-rw-r-- 1 bayu bayu 5.5K May  8 06:19 sslforfree.zip <br>
+sudo apt-get install -yjitsi-meet <br>
+....... <br>
+debconf: falling back to frontend: Readline <br>
+Configuring jitsi-videobridge2 <br>
+------------------------------ <br>
+The jitsi-videobridge package needs the DNS hostname of your instance. <br>
+Hostname: vpsmeet
+
+....... <br>
 <br>
+
+
+
+
 
 
 
