@@ -9,7 +9,7 @@ docker volume create data-jitsi-production <br>
 docker volume list <br>
 docker volume inspect data-jitsi-production <br>
 <br>
- docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 -p 10000:10000 --privileged -v data-jitsi-production:/run/dbus/system_bus_socket bayusetyatmoko/ub20dev /bin/bash <br>
+ docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 -p 10000:10000 --privileged -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket bayusetyatmoko/ub20dev /bin/bash <br>
 <br>
 docker exec -it ub20dev_jitsi_production /bin/bash -c "/etc/init.d/ssh restart" <br>
 <br>
@@ -31,13 +31,17 @@ sudo nano /etc/hosts <br>
 ```
 <br>
 sudo nano /etc/hostname <br>
-#--- Change the command below to suit your condition <br>
-vpsmeet.idjvnix.com <br>
+```
+#--- Change the command below to suit your condition 
+vpsmeet.idjvnix.com 
+```
 <br>
 sudo hostname vpsmeet.idjvnix.com <br>
 <br>
 hostname <br>
-vpsmeet.idjvnix.com <br>
+```
+vpsmeet.idjvnix.com 
+```
 <br>
 #--- Change the command below to suit your condition <br>
 ping vpsmeet <br>
@@ -45,69 +49,79 @@ ping vpsmeet.idjvnix.com <br>
 <br>
 
 **2.03. Install Jitsi-Meet & Configure SSL on nginx** <br>
-sudo netstat -plnt <br>
+sudo netstat -plntu <br>
+```
 Active Internet connections (only servers) <br>
-Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name  <br>  
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      204/sshd: /usr/sbin <br>
-tcp6       0      0 :::22                   :::*                    LISTEN      204/sshd: /usr/sbin <br>
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name  
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      204/sshd: /usr/sbin 
+tcp6       0      0 :::22                   :::*                    LISTEN      204/sshd: /usr/sbin 
+```
 <br>
-bayu@vpsmeet:~$ ls -lh <br>
+pwd <br>
+```
+/home/bayu
+```
+<br>
+ls -lh <br>
+```
 total 28K <br>
--rw-rw-r-- 1 bayu bayu   87 May  8 06:10 KsBBHiqkCFgNPImcl79KWxxRqOakC5FaFpm4VbEdPmE <br>
--rw-rw-r-- 1 bayu bayu  333 May  6 11:25 app.js <br>
--rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 ca_bundle.crt <br>
--rw-rw-r-- 1 bayu bayu 1.9K May  8 06:17 certificate.crt <br>
--rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 private.key <br>
--rw-rw-r-- 1 bayu bayu 5.5K May  8 06:19 sslforfree.zip <br>
+-rw-rw-r-- 1 bayu bayu   87 May  8 06:10 KsBBHiqkCFgNPImcl79KWxxRqOakC5FaFpm4VbEdPmE 
+-rw-rw-r-- 1 bayu bayu  333 May  6 11:25 app.js 
+-rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 ca_bundle.crt 
+-rw-rw-r-- 1 bayu bayu 1.9K May  8 06:17 certificate.crt 
+-rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 private.key 
+-rw-rw-r-- 1 bayu bayu 5.5K May  8 06:19 sslforfree.zip 
+```
 <br>
-bayu@vpsmeet:~$ sudo cp certificate.crt /etc/ssl/certs/vpsmeet.idjvnix.com.crt <br>
-bayu@vpsmeet:~$ sudo cp private.key /etc/ssl/private/vpsmeet.idjvnix.com.key <br>
+sudo cp certificate.crt /etc/ssl/certs/vpsmeet.idjvnix.com.crt <br>
+sudo cp private.key /etc/ssl/private/vpsmeet.idjvnix.com.key <br>
 <br>
-sudo apt update <br>
-sudo apt remove nginx php-fpm <br>
-sudo apt autoremove <br>
-<br>
+sudo apt update
 sudo apt list --upgradable <br>
 sudo apt full-upgrade <br>
+sudo apt clean <br>
+sudo apt autoremove <br>
+sudo apt autoclean <br>
 <br>
 echo 'deb https://download.jitsi.org stable/' | sudo tee /etc/apt/sources.list.d/jitsi-stable.list <br>
 wget -qO -  https://download.jitsi.org/jitsi-key.gpg.key | sudo apt-key add - <br>
-sudo apt update <br>
 <br>
-sudo apt-get install apt-transport-https <br>
 sudo apt-get update <br>
+sudo apt-get install apt-transport-https <br>
 <br>
 sudo apt-get install jitsi-meet <br>
-....... <br>
-debconf: falling back to frontend: Readline <br>
-Configuring jitsi-videobridge2 <br>
------------------------------- <br>
-The jitsi-videobridge package needs the DNS hostname of your instance. <br>
-Hostname: vpsmeet.idjvnix.com <br>
-....... <br>
-debconf: falling back to frontend: Readline <br>
-Configuring jitsi-meet-web-config <br>
---------------------------------- <br>
-Jitsi Meet is best to be set up with an SSL certificate. Having no certificate, a self-signed one will be generated. By choosing self-signed you will later have a chance to install Let’s Encrypt certificates. Having a certificate signed by a recognised CA, it can be uploaded on the server and point its location. The default filenames will be /etc/ssl/--domain.name--.key for the key and /etc/ssl/--domain.name--.crt for the certificate. <br>
-  1. Generate a new self-signed certificate (You will later get a chance to obtain a Let's encrypt certificate) <br>
-  2. I want to use my own certificate <br>
-SSL certificate for the Jitsi Meet instance 2 <br>
-The full path to the SSL key file on the server. If it has not been uploaded, now is a good time to do so. <br>
-Full local server path to the SSL key file: /etc/ssl/private/ <br>
-The full path to the SSL certificate file on the server. If you haven't uploaded it, now is a good time to upload it in another console. <br>
-Full local server path to the SSL certificate file: /etc/ssl/certs/ <br>
-....... <br>
-debconf: falling back to frontend: Readline <br>
------------------------------------------------- <br>
-turnserver is listening on tcp 4445 as other nginx sites use port 443 <br>
------------------------------------------------- <br>
-invoke-rc.d: could not determine current runlevel <br>
-invoke-rc.d: policy-rc.d denied execution of restart. <br>
-invoke-rc.d: could not determine current runlevel <br>
-invoke-rc.d: policy-rc.d denied execution of restart. <br>
-Processing triggers for systemd (245.4-4ubuntu3) ... <br>
-Processing triggers for libc-bin (2.31-0ubuntu9) ... <br>
-....... <br>
+```
+.......
+debconf: falling back to frontend: Readline 
+Configuring jitsi-videobridge2 
+------------------------------ 
+The jitsi-videobridge package needs the DNS hostname of your instance. 
+Hostname: vpsmeet.idjvnix.com 
+....... 
+debconf: falling back to frontend: Readline 
+Configuring jitsi-meet-web-config 
+--------------------------------- 
+Jitsi Meet is best to be set up with an SSL certificate. Having no certificate, a self-signed one will be generated. By choosing self-signed you will later have a chance to install Let’s Encrypt certificates. Having a certificate signed by a recognised CA, it can be uploaded on the server and point its location. The default filenames will be /etc/ssl/--domain.name--.key for the key and /etc/ssl/--domain.name--.crt for the certificate. 
+  1. Generate a new self-signed certificate (You will later get a chance to obtain a Let's encrypt certificate) 
+  2. I want to use my own certificate 
+SSL certificate for the Jitsi Meet instance 2 
+The full path to the SSL key file on the server. If it has not been uploaded, now is a good time to do so. 
+Full local server path to the SSL key file: /etc/ssl/private/ 
+The full path to the SSL certificate file on the server. If you haven't uploaded it, now is a good time to upload it in another console. 
+Full local server path to the SSL certificate file: /etc/ssl/certs/ 
+.......
+debconf: falling back to frontend: Readline 
+------------------------------------------------ 
+turnserver is listening on tcp 4445 as other nginx sites use port 443 
+------------------------------------------------ 
+invoke-rc.d: could not determine current runlevel 
+invoke-rc.d: policy-rc.d denied execution of restart. 
+invoke-rc.d: could not determine current runlevel 
+invoke-rc.d: policy-rc.d denied execution of restart. 
+Processing triggers for systemd (245.4-4ubuntu3) ... 
+Processing triggers for libc-bin (2.31-0ubuntu9) ... 
+....... 
+```
 <br>
 
 
