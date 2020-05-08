@@ -5,6 +5,7 @@ How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
 **2.01. Prepare Host O/S Centos 7 (Do step 1.01 - 1.04) below ...** <br>
 **2.02. Use Docker Images from https://hub.docker.com/repository/docker/bayusetyatmoko/ub20dev** <br>
 docker pull bayusetyatmoko/ub20dev <br>
+<br>
 docker volume create data-jitsi-production <br>
 docker volume list <br>
 docker volume inspect data-jitsi-production <br>
@@ -14,7 +15,7 @@ docker volume inspect data-jitsi-production <br>
 docker exec -it ub20dev_jitsi_production /bin/bash -c "/etc/init.d/ssh restart" <br>
 <br>
 docker ps -a <br>
-sudo netstat -plnt <br>
+sudo netstat -plntu <br>
 <br>
 ssh -p 2222 bayu@localhost <br>
 ```
