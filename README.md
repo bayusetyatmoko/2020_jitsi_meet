@@ -31,8 +31,10 @@ sudo nano /etc/hosts <br>
 ```
 <br>
 sudo nano /etc/hostname <br>
+```
 #--- Change the setting below to suit your condition 
-vpsmeet.idjvnix.com 
+vpsmeet.idjvnix.com
+```
 <br>
 
 
