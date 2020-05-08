@@ -53,12 +53,10 @@ Proto Recv-Q Send-Q Local Address           Foreign Address         State       
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      204/sshd: /usr/sbin 
 tcp6       0      0 :::22                   :::*                    LISTEN      204/sshd: /usr/sbin 
 ```
-<br>
 pwd <br>
 ```
 /home/bayu
 ```
-<br>
 ls -lh <br>
 ```
 total 28K <br>
@@ -69,7 +67,6 @@ total 28K <br>
 -rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 private.key 
 -rw-rw-r-- 1 bayu bayu 5.5K May  8 06:19 sslforfree.zip 
 ```
-<br>
 sudo cp certificate.crt /etc/ssl/certs/vpsmeet.idjvnix.com.crt <br>
 sudo cp private.key /etc/ssl/private/vpsmeet.idjvnix.com.key <br>
 <br>
@@ -119,18 +116,9 @@ Processing triggers for systemd (245.4-4ubuntu3) ...
 Processing triggers for libc-bin (2.31-0ubuntu9) ... 
 ....... 
 ```
-<br>
-
-
-
-
-
-
-
-
 
 ## Case 1 - Install Jitsi Meet on Host O/S Centos 7 (via docker compose) 
-###### 1.01. Prepare Centos Repo & Install Tools
+**1.01. Prepare Centos Repo & Install Tools** <br>
 sudo yum check-update <br>
 sudo yum install nano python3 curl elinks lynx<br>
 sudo yum install git <br>
@@ -146,24 +134,26 @@ nvm install v14.2.0 <br>
 node --version <br>
 <br>
 nano app.js <br>
-const http = require('http'); <br>
-const hostname = '0.0.0.0'; <br>
-const port = 3000; <br>
-const server = http.createServer((req, res) => { <br>
-  res.statusCode = 200; <br>
-  res.setHeader('Content-Type', 'text/plain'); <br>
-  res.end('Hello World'); <br>
-}); <br>
-server.listen(port, hostname, () => { <br>
-  console.log(`Server running at http://${hostname}:${port}/`); <br>
-}); <br>
-<br>
+```
+const http = require('http'); 
+const hostname = '0.0.0.0'; 
+const port = 3000; 
+const server = http.createServer((req, res) => { 
+  res.statusCode = 200; 
+  res.setHeader('Content-Type', 'text/plain'); 
+  res.end('Hello World'); 
+}); 
+server.listen(port, hostname, () => { 
+  console.log(`Server running at http://${hostname}:${port}/`);
+}); 
+```
 node app.js  <br>
-Server running at http://0.0.0.0:3000/  <br>
-(To Stop Service Nodejs, Using "Ctrl + c") <br>
-<br>
+```
+Server running at http://0.0.0.0:3000/  
+(To Stop Service Nodejs, Using "Ctrl + c") 
+```
 
-###### 1.02. Prepare Hosts & Hostname (FQDN)
+**1.02. Prepare Hosts & Hostname (FQDN)** <br>
 sudo nano /etc/hosts <br>
 127.0.0.1	localhost <br>
 #--- Change the setting below to suit your condition <br>
