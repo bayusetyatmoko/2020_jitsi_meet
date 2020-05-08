@@ -220,7 +220,6 @@ sudo systemctl status docker <br>
 <br>
 sudo usermod -aG docker bayu <br>
 newgrp docker <br>
-<br>
 docker version <br>
 <br>
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose <br>
