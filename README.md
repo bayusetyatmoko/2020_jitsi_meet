@@ -71,7 +71,7 @@ total 28K <br>
 sudo cp certificate.crt /etc/ssl/certs/vpsmeet.idjvnix.com.crt <br>
 sudo cp private.key /etc/ssl/private/vpsmeet.idjvnix.com.key <br>
 <br>
-sudo apt update
+sudo apt update <br>
 sudo apt list --upgradable <br>
 sudo apt full-upgrade <br>
 sudo apt clean <br>
