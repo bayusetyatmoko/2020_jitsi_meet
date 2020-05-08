@@ -36,7 +36,7 @@ sudo nano /etc/hostname <br>
 vpsmeet.idjvnix.com 
 ```
 <br>
-sudo hostname vpsmeet.idjvnix.com <br>
+sudo hostname vpsmeet.idjvnix.com  <br>
 <br>
 hostname <br>
 ```
