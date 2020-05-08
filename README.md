@@ -25,14 +25,14 @@ bayu@localhost's password: 1234567x
 sudo nano /etc/hosts <br>
 ```
 127.0.0.1	localhost 
-#172.17.0.2     5b502ea004ba  
-#--- Change the setting below to suit your condition 
+### 172.17.0.2     5b502ea004ba  
+### Change the setting below to suit your condition 
 139.99.90.116    vpsmeet.idjvnix.com    vpsmeet 
 ```
 <br>
 sudo nano /etc/hostname <br>
 ```
-#--- Change the setting below to suit your condition 
+### Change the setting below to suit your condition 
 vpsmeet.idjvnix.com
 ```
 <br>
