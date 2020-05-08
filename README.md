@@ -284,288 +284,288 @@ a. If you edit file ".env" then you must remove ~/.jitsi-meet-cfg then recreate 
 b. Backup Source Code & Config Jitsi-Meet Application using this command <br> 
 <br>
 sudo tar -czvf backup_20200508_docker-jitsi-meet.tar.gz docker-jitsi-meet/ <br>
-docker-jitsi-meet/ <br>
-docker-jitsi-meet/web/ <br>
-docker-jitsi-meet/web/Makefile <br>
-docker-jitsi-meet/web/rootfs/ <br>
-docker-jitsi-meet/web/rootfs/etc/ <br>
-docker-jitsi-meet/web/rootfs/etc/services.d/ <br>
-docker-jitsi-meet/web/rootfs/etc/services.d/cron/ <br>
-docker-jitsi-meet/web/rootfs/etc/services.d/cron/run <br>
-docker-jitsi-meet/web/rootfs/etc/services.d/nginx/ <br>
-docker-jitsi-meet/web/rootfs/etc/services.d/nginx/run <br>
-docker-jitsi-meet/web/rootfs/etc/cont-init.d/ <br>
-docker-jitsi-meet/web/rootfs/etc/cont-init.d/10-config <br>
-docker-jitsi-meet/web/rootfs/defaults/ <br>
-docker-jitsi-meet/web/rootfs/defaults/ssl.conf <br>
-docker-jitsi-meet/web/rootfs/defaults/meet.conf <br>
-docker-jitsi-meet/web/rootfs/defaults/letsencrypt-renew <br>
-docker-jitsi-meet/web/rootfs/defaults/nginx.conf <br>
-docker-jitsi-meet/web/rootfs/defaults/default <br>
-docker-jitsi-meet/web/Dockerfile <br>
-docker-jitsi-meet/jigasi/ <br>
-docker-jitsi-meet/jigasi/Makefile <br>
-docker-jitsi-meet/jigasi/rootfs/ <br>
-docker-jitsi-meet/jigasi/rootfs/etc/ <br>
-docker-jitsi-meet/jigasi/rootfs/etc/services.d/ <br>
-docker-jitsi-meet/jigasi/rootfs/etc/services.d/jigasi/ <br>
-docker-jitsi-meet/jigasi/rootfs/etc/services.d/jigasi/run <br>
-docker-jitsi-meet/jigasi/rootfs/etc/cont-init.d/ <br>
-docker-jitsi-meet/jigasi/rootfs/etc/cont-init.d/10-config <br>
-docker-jitsi-meet/jigasi/rootfs/defaults/ <br>
-docker-jitsi-meet/jigasi/rootfs/defaults/sip-communicator.properties <br>
-docker-jitsi-meet/jigasi/rootfs/defaults/logging.properties <br>
-docker-jitsi-meet/jigasi/Dockerfile <br>
-docker-jitsi-meet/.env.bak <br>
-docker-jitsi-meet/README.md <br>
-docker-jitsi-meet/base-java/ <br>
-docker-jitsi-meet/base-java/Makefile <br>
-docker-jitsi-meet/base-java/Dockerfile <br>
-docker-jitsi-meet/etherpad/ <br>
-docker-jitsi-meet/etherpad/Makefile <br>
-docker-jitsi-meet/etherpad/rootfs/ <br>
-docker-jitsi-meet/etherpad/rootfs/defaults/ <br>
-docker-jitsi-meet/etherpad/rootfs/defaults/settings.json <br>
-docker-jitsi-meet/etherpad/Dockerfile <br>
-docker-jitsi-meet/jicofo/ <br>
-docker-jitsi-meet/jicofo/Makefile <br>
-docker-jitsi-meet/jicofo/rootfs/ <br>
-docker-jitsi-meet/jicofo/rootfs/etc/ <br>
-docker-jitsi-meet/jicofo/rootfs/etc/services.d/ <br>
-docker-jitsi-meet/jicofo/rootfs/etc/services.d/jicofo/ <br>
-docker-jitsi-meet/jicofo/rootfs/etc/services.d/jicofo/run <br>
-docker-jitsi-meet/jicofo/rootfs/etc/cont-init.d/ <br>
-docker-jitsi-meet/jicofo/rootfs/etc/cont-init.d/10-config <br>
-docker-jitsi-meet/jicofo/rootfs/defaults/ <br>
-docker-jitsi-meet/jicofo/rootfs/defaults/sip-communicator.properties <br>
-docker-jitsi-meet/jicofo/rootfs/defaults/logging.properties <br>
-docker-jitsi-meet/jicofo/Dockerfile <br>
-docker-jitsi-meet/CHANGELOG.md <br>
-docker-jitsi-meet/gen-passwords.sh <br>
-docker-jitsi-meet/.gitignore <br>
-docker-jitsi-meet/jigasi.yml <br>
-docker-jitsi-meet/base/ <br>
-docker-jitsi-meet/base/Makefile <br>
-docker-jitsi-meet/base/rootfs/ <br>
-docker-jitsi-meet/base/rootfs/etc/ <br>
-docker-jitsi-meet/base/rootfs/etc/services.d/ <br>
-docker-jitsi-meet/base/rootfs/etc/services.d/.gitkeep <br>
-docker-jitsi-meet/base/rootfs/etc/apt/ <br>
-docker-jitsi-meet/base/rootfs/etc/apt/apt.conf.d/ <br>
-docker-jitsi-meet/base/rootfs/etc/apt/apt.conf.d/99local <br>
-docker-jitsi-meet/base/rootfs/etc/fix-attrs.d/ <br>
-docker-jitsi-meet/base/rootfs/etc/fix-attrs.d/.gitkeep <br>
-docker-jitsi-meet/base/rootfs/etc/cont-init.d/ <br>
-docker-jitsi-meet/base/rootfs/etc/cont-init.d/.gitkeep <br>
-docker-jitsi-meet/base/rootfs/etc/cont-init.d/01-set-timezone <br>
-docker-jitsi-meet/base/rootfs/etc/cont-finish.d/ <br>
-docker-jitsi-meet/base/rootfs/etc/cont-finish.d/.gitkeep <br>
-docker-jitsi-meet/base/rootfs/usr/ <br>
-docker-jitsi-meet/base/rootfs/usr/bin/ <br>
-docker-jitsi-meet/base/rootfs/usr/bin/apt-cleanup <br>
-docker-jitsi-meet/base/rootfs/usr/bin/tpl <br>
-docker-jitsi-meet/base/rootfs/usr/bin/apt-dpkg-wrap <br>
-docker-jitsi-meet/base/Dockerfile <br>
-docker-jitsi-meet/docker-compose.yml <br>
-docker-jitsi-meet/Makefile <br>
-docker-jitsi-meet/resources/ <br>
-docker-jitsi-meet/resources/docker-jitsi-meet.png <br>
-docker-jitsi-meet/resources/jitsi-docker.png <br>
-docker-jitsi-meet/resources/docker-jitsi-meet.xml <br>
-docker-jitsi-meet/jvb/ <br>
-docker-jitsi-meet/jvb/Makefile <br>
-docker-jitsi-meet/jvb/rootfs/ <br>
-docker-jitsi-meet/jvb/rootfs/etc/ <br>
-docker-jitsi-meet/jvb/rootfs/etc/services.d/ <br>
-docker-jitsi-meet/jvb/rootfs/etc/services.d/jvb/ <br>
-docker-jitsi-meet/jvb/rootfs/etc/services.d/jvb/run <br>
-docker-jitsi-meet/jvb/rootfs/etc/cont-init.d/ <br>
-docker-jitsi-meet/jvb/rootfs/etc/cont-init.d/10-config <br>
-docker-jitsi-meet/jvb/rootfs/defaults/ <br>
-docker-jitsi-meet/jvb/rootfs/defaults/sip-communicator.properties <br>
-docker-jitsi-meet/jvb/rootfs/defaults/logging.properties <br>
-docker-jitsi-meet/jvb/Dockerfile <br>
-docker-jitsi-meet/.git/ <br>
-docker-jitsi-meet/.git/index <br>
-docker-jitsi-meet/.git/config <br>
-docker-jitsi-meet/.git/logs/ <br>
-docker-jitsi-meet/.git/logs/HEAD <br>
-docker-jitsi-meet/.git/logs/refs/ <br>
-docker-jitsi-meet/.git/logs/refs/remotes/ <br>
-docker-jitsi-meet/.git/logs/refs/remotes/origin/ <br>
-docker-jitsi-meet/.git/logs/refs/remotes/origin/HEAD <br>
-docker-jitsi-meet/.git/logs/refs/heads/ <br>
-docker-jitsi-meet/.git/logs/refs/heads/master <br>
-docker-jitsi-meet/.git/info/ <br>
-docker-jitsi-meet/.git/info/exclude <br>
-docker-jitsi-meet/.git/hooks/ <br>
-docker-jitsi-meet/.git/hooks/commit-msg.sample <br>
-docker-jitsi-meet/.git/hooks/pre-rebase.sample <br>
-docker-jitsi-meet/.git/hooks/post-update.sample <br>
-docker-jitsi-meet/.git/hooks/prepare-commit-msg.sample <br>
-docker-jitsi-meet/.git/hooks/pre-applypatch.sample <br>
-docker-jitsi-meet/.git/hooks/update.sample <br>
-docker-jitsi-meet/.git/hooks/pre-commit.sample <br>
-docker-jitsi-meet/.git/hooks/pre-push.sample <br>
-docker-jitsi-meet/.git/hooks/pre-push.sample <br>
-docker-jitsi-meet/.git/hooks/applypatch-msg.sample <br>
-docker-jitsi-meet/.git/branches/ <br>
-docker-jitsi-meet/.git/objects/ <br>
-docker-jitsi-meet/.git/objects/info/ <br>
-docker-jitsi-meet/.git/objects/pack/ <br>
-docker-jitsi-meet/.git/objects/pack/pack-9bcad6a95d237ba1f9246ce08f6acb00a987280f.idx <br>
-docker-jitsi-meet/.git/objects/pack/pack-9bcad6a95d237ba1f9246ce08f6acb00a987280f.pack <br>
-docker-jitsi-meet/.git/HEAD <br>
-docker-jitsi-meet/.git/refs/ <br>
-docker-jitsi-meet/.git/refs/tags/ <br>
-docker-jitsi-meet/.git/refs/remotes/ <br>
-docker-jitsi-meet/.git/refs/remotes/origin/ <br>
-docker-jitsi-meet/.git/refs/remotes/origin/HEAD <br>
-docker-jitsi-meet/.git/refs/heads/ <br>
-docker-jitsi-meet/.git/refs/heads/master <br>
-docker-jitsi-meet/.git/description <br>
-docker-jitsi-meet/.git/packed-refs <br>
-docker-jitsi-meet/jibri/ <br>
-docker-jitsi-meet/jibri/Makefile <br>
-docker-jitsi-meet/jibri/rootfs/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/opt/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/opt/chrome/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/opt/chrome/policies/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/opt/chrome/policies/managed/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/opt/chrome/policies/managed/managed_policies.json <br>
-docker-jitsi-meet/jibri/rootfs/etc/services.d/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/services.d/20-icewm/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/services.d/20-icewm/run <br>
-docker-jitsi-meet/jibri/rootfs/etc/services.d/10-xorg/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/services.d/10-xorg/run <br>
-docker-jitsi-meet/jibri/rootfs/etc/services.d/30-jibri/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/services.d/30-jibri/run <br>
-docker-jitsi-meet/jibri/rootfs/etc/cont-init.d/ <br>
-docker-jitsi-meet/jibri/rootfs/etc/cont-init.d/10-config <br>
-docker-jitsi-meet/jibri/rootfs/defaults/ <br>
-docker-jitsi-meet/jibri/rootfs/defaults/config.json <br>
-docker-jitsi-meet/jibri/rootfs/defaults/logging.properties <br>
-docker-jitsi-meet/jibri/Dockerfile <br>
-docker-jitsi-meet/.env <br>
-docker-jitsi-meet/LICENSE <br>
-docker-jitsi-meet/jibri.yml <br>
-docker-jitsi-meet/prosody/ <br>
-docker-jitsi-meet/prosody/Makefile <br>
-docker-jitsi-meet/prosody/rootfs/ <br>
-docker-jitsi-meet/prosody/rootfs/etc/ <br>
-docker-jitsi-meet/prosody/rootfs/etc/services.d/ <br>
-docker-jitsi-meet/prosody/rootfs/etc/services.d/10-saslauthd/ <br>
-docker-jitsi-meet/prosody/rootfs/etc/services.d/10-saslauthd/run <br>
-docker-jitsi-meet/prosody/rootfs/etc/services.d/prosody/ <br>
-docker-jitsi-meet/prosody/rootfs/etc/services.d/prosody/run <br>
-docker-jitsi-meet/prosody/rootfs/etc/sasl/ <br>
-docker-jitsi-meet/prosody/rootfs/etc/sasl/xmpp.conf <br>
-docker-jitsi-meet/prosody/rootfs/etc/cont-init.d/ <br>
-docker-jitsi-meet/prosody/rootfs/etc/cont-init.d/10-config <br>
-docker-jitsi-meet/prosody/rootfs/defaults/ <br>
-docker-jitsi-meet/prosody/rootfs/defaults/conf.d/ <br>
-docker-jitsi-meet/prosody/rootfs/defaults/conf.d/jitsi-meet.cfg.lua <br>
-docker-jitsi-meet/prosody/rootfs/defaults/saslauthd.conf <br>
-docker-jitsi-meet/prosody/rootfs/defaults/prosody.cfg.lua <br>
-docker-jitsi-meet/prosody/Dockerfile <br>
-docker-jitsi-meet/examples/ <br>
-docker-jitsi-meet/examples/README.md <br>
-docker-jitsi-meet/examples/traefik/ <br>
-docker-jitsi-meet/examples/traefik/README.md <br>
-docker-jitsi-meet/examples/traefik/docker-compose.yml <br>
-docker-jitsi-meet/examples/kubernetes/ <br>
-docker-jitsi-meet/examples/kubernetes/README.md <br>
-docker-jitsi-meet/examples/kubernetes/deployment.yaml <br>
-docker-jitsi-meet/examples/kubernetes/web-service.yaml <br>
-docker-jitsi-meet/examples/kubernetes/jvb-service.yaml <br>
-docker-jitsi-meet/examples/traefik-v2/ <br>
-docker-jitsi-meet/examples/traefik-v2/README.md <br>
-docker-jitsi-meet/examples/traefik-v2/docker-compose.yml <br>
-docker-jitsi-meet/env.example <br>
-docker-jitsi-meet/etherpad.yml <br>
-<br>
-<br>
+```
+docker-jitsi-meet/ 
+docker-jitsi-meet/web/ 
+docker-jitsi-meet/web/Makefile 
+docker-jitsi-meet/web/rootfs/ 
+docker-jitsi-meet/web/rootfs/etc/ 
+docker-jitsi-meet/web/rootfs/etc/services.d/ 
+docker-jitsi-meet/web/rootfs/etc/services.d/cron/ 
+docker-jitsi-meet/web/rootfs/etc/services.d/cron/run 
+docker-jitsi-meet/web/rootfs/etc/services.d/nginx/ 
+docker-jitsi-meet/web/rootfs/etc/services.d/nginx/run 
+docker-jitsi-meet/web/rootfs/etc/cont-init.d/ 
+docker-jitsi-meet/web/rootfs/etc/cont-init.d/10-config 
+docker-jitsi-meet/web/rootfs/defaults/ 
+docker-jitsi-meet/web/rootfs/defaults/ssl.conf 
+docker-jitsi-meet/web/rootfs/defaults/meet.conf 
+docker-jitsi-meet/web/rootfs/defaults/letsencrypt-renew 
+docker-jitsi-meet/web/rootfs/defaults/nginx.conf 
+docker-jitsi-meet/web/rootfs/defaults/default 
+docker-jitsi-meet/web/Dockerfile 
+docker-jitsi-meet/jigasi/ 
+docker-jitsi-meet/jigasi/Makefile 
+docker-jitsi-meet/jigasi/rootfs/ 
+docker-jitsi-meet/jigasi/rootfs/etc/ 
+docker-jitsi-meet/jigasi/rootfs/etc/services.d/ 
+docker-jitsi-meet/jigasi/rootfs/etc/services.d/jigasi/ 
+docker-jitsi-meet/jigasi/rootfs/etc/services.d/jigasi/run 
+docker-jitsi-meet/jigasi/rootfs/etc/cont-init.d/ 
+docker-jitsi-meet/jigasi/rootfs/etc/cont-init.d/10-config 
+docker-jitsi-meet/jigasi/rootfs/defaults/ 
+docker-jitsi-meet/jigasi/rootfs/defaults/sip-communicator.properties 
+docker-jitsi-meet/jigasi/rootfs/defaults/logging.properties 
+docker-jitsi-meet/jigasi/Dockerfile 
+docker-jitsi-meet/.env.bak 
+docker-jitsi-meet/README.md 
+docker-jitsi-meet/base-java/ 
+docker-jitsi-meet/base-java/Makefile 
+docker-jitsi-meet/base-java/Dockerfile 
+docker-jitsi-meet/etherpad/ 
+docker-jitsi-meet/etherpad/Makefile 
+docker-jitsi-meet/etherpad/rootfs/ 
+docker-jitsi-meet/etherpad/rootfs/defaults/ 
+docker-jitsi-meet/etherpad/rootfs/defaults/settings.json 
+docker-jitsi-meet/etherpad/Dockerfile 
+docker-jitsi-meet/jicofo/ 
+docker-jitsi-meet/jicofo/Makefile 
+docker-jitsi-meet/jicofo/rootfs/ 
+docker-jitsi-meet/jicofo/rootfs/etc/ 
+docker-jitsi-meet/jicofo/rootfs/etc/services.d/ 
+docker-jitsi-meet/jicofo/rootfs/etc/services.d/jicofo/ 
+docker-jitsi-meet/jicofo/rootfs/etc/services.d/jicofo/run 
+docker-jitsi-meet/jicofo/rootfs/etc/cont-init.d/ 
+docker-jitsi-meet/jicofo/rootfs/etc/cont-init.d/10-config 
+docker-jitsi-meet/jicofo/rootfs/defaults/ 
+docker-jitsi-meet/jicofo/rootfs/defaults/sip-communicator.properties 
+docker-jitsi-meet/jicofo/rootfs/defaults/logging.properties 
+docker-jitsi-meet/jicofo/Dockerfile 
+docker-jitsi-meet/CHANGELOG.md 
+docker-jitsi-meet/gen-passwords.sh 
+docker-jitsi-meet/.gitignore 
+docker-jitsi-meet/jigasi.yml 
+docker-jitsi-meet/base/ 
+docker-jitsi-meet/base/Makefile 
+docker-jitsi-meet/base/rootfs/ 
+docker-jitsi-meet/base/rootfs/etc/ 
+docker-jitsi-meet/base/rootfs/etc/services.d/ 
+docker-jitsi-meet/base/rootfs/etc/services.d/.gitkeep 
+docker-jitsi-meet/base/rootfs/etc/apt/ 
+docker-jitsi-meet/base/rootfs/etc/apt/apt.conf.d/ 
+docker-jitsi-meet/base/rootfs/etc/apt/apt.conf.d/99local 
+docker-jitsi-meet/base/rootfs/etc/fix-attrs.d/ 
+docker-jitsi-meet/base/rootfs/etc/fix-attrs.d/.gitkeep 
+docker-jitsi-meet/base/rootfs/etc/cont-init.d/ 
+docker-jitsi-meet/base/rootfs/etc/cont-init.d/.gitkeep 
+docker-jitsi-meet/base/rootfs/etc/cont-init.d/01-set-timezone 
+docker-jitsi-meet/base/rootfs/etc/cont-finish.d/ 
+docker-jitsi-meet/base/rootfs/etc/cont-finish.d/.gitkeep 
+docker-jitsi-meet/base/rootfs/usr/ 
+docker-jitsi-meet/base/rootfs/usr/bin/ 
+docker-jitsi-meet/base/rootfs/usr/bin/apt-cleanup 
+docker-jitsi-meet/base/rootfs/usr/bin/tpl 
+docker-jitsi-meet/base/rootfs/usr/bin/apt-dpkg-wrap 
+docker-jitsi-meet/base/Dockerfile 
+docker-jitsi-meet/docker-compose.yml 
+docker-jitsi-meet/Makefile 
+docker-jitsi-meet/resources/ 
+docker-jitsi-meet/resources/docker-jitsi-meet.png 
+docker-jitsi-meet/resources/jitsi-docker.png 
+docker-jitsi-meet/resources/docker-jitsi-meet.xml 
+docker-jitsi-meet/jvb/ 
+docker-jitsi-meet/jvb/Makefile 
+docker-jitsi-meet/jvb/rootfs/ 
+docker-jitsi-meet/jvb/rootfs/etc/ 
+docker-jitsi-meet/jvb/rootfs/etc/services.d/ 
+docker-jitsi-meet/jvb/rootfs/etc/services.d/jvb/ 
+docker-jitsi-meet/jvb/rootfs/etc/services.d/jvb/run 
+docker-jitsi-meet/jvb/rootfs/etc/cont-init.d/ 
+docker-jitsi-meet/jvb/rootfs/etc/cont-init.d/10-config 
+docker-jitsi-meet/jvb/rootfs/defaults/ 
+docker-jitsi-meet/jvb/rootfs/defaults/sip-communicator.properties 
+docker-jitsi-meet/jvb/rootfs/defaults/logging.properties 
+docker-jitsi-meet/jvb/Dockerfile 
+docker-jitsi-meet/.git/ 
+docker-jitsi-meet/.git/index 
+docker-jitsi-meet/.git/config 
+docker-jitsi-meet/.git/logs/ 
+docker-jitsi-meet/.git/logs/HEAD 
+docker-jitsi-meet/.git/logs/refs/ 
+docker-jitsi-meet/.git/logs/refs/remotes/ 
+docker-jitsi-meet/.git/logs/refs/remotes/origin/ 
+docker-jitsi-meet/.git/logs/refs/remotes/origin/HEAD 
+docker-jitsi-meet/.git/logs/refs/heads/ 
+docker-jitsi-meet/.git/logs/refs/heads/master
+docker-jitsi-meet/.git/info/ 
+docker-jitsi-meet/.git/info/exclude 
+docker-jitsi-meet/.git/hooks/ 
+docker-jitsi-meet/.git/hooks/commit-msg.sample 
+docker-jitsi-meet/.git/hooks/pre-rebase.sample 
+docker-jitsi-meet/.git/hooks/post-update.sample 
+docker-jitsi-meet/.git/hooks/prepare-commit-msg.sample 
+docker-jitsi-meet/.git/hooks/pre-applypatch.sample 
+docker-jitsi-meet/.git/hooks/update.sample 
+docker-jitsi-meet/.git/hooks/pre-commit.sample 
+docker-jitsi-meet/.git/hooks/pre-push.sample 
+docker-jitsi-meet/.git/hooks/pre-push.sample 
+docker-jitsi-meet/.git/hooks/applypatch-msg.sample 
+docker-jitsi-meet/.git/branches/ 
+docker-jitsi-meet/.git/objects/ 
+docker-jitsi-meet/.git/objects/info/ 
+docker-jitsi-meet/.git/objects/pack/ 
+docker-jitsi-meet/.git/objects/pack/pack-9bcad6a95d237ba1f9246ce08f6acb00a987280f.idx 
+docker-jitsi-meet/.git/objects/pack/pack-9bcad6a95d237ba1f9246ce08f6acb00a987280f.pack 
+docker-jitsi-meet/.git/HEAD 
+docker-jitsi-meet/.git/refs/ 
+docker-jitsi-meet/.git/refs/tags/ 
+docker-jitsi-meet/.git/refs/remotes/ 
+docker-jitsi-meet/.git/refs/remotes/origin/ 
+docker-jitsi-meet/.git/refs/remotes/origin/HEAD 
+docker-jitsi-meet/.git/refs/heads/ 
+docker-jitsi-meet/.git/refs/heads/master 
+docker-jitsi-meet/.git/description 
+docker-jitsi-meet/.git/packed-refs 
+docker-jitsi-meet/jibri/ 
+docker-jitsi-meet/jibri/Makefile 
+docker-jitsi-meet/jibri/rootfs/ 
+docker-jitsi-meet/jibri/rootfs/etc/ 
+docker-jitsi-meet/jibri/rootfs/etc/opt/ 
+docker-jitsi-meet/jibri/rootfs/etc/opt/chrome/ 
+docker-jitsi-meet/jibri/rootfs/etc/opt/chrome/policies/ 
+docker-jitsi-meet/jibri/rootfs/etc/opt/chrome/policies/managed/ 
+docker-jitsi-meet/jibri/rootfs/etc/opt/chrome/policies/managed/managed_policies.json 
+docker-jitsi-meet/jibri/rootfs/etc/services.d/ 
+docker-jitsi-meet/jibri/rootfs/etc/services.d/20-icewm/ 
+docker-jitsi-meet/jibri/rootfs/etc/services.d/20-icewm/run 
+docker-jitsi-meet/jibri/rootfs/etc/services.d/10-xorg/ 
+docker-jitsi-meet/jibri/rootfs/etc/services.d/10-xorg/run 
+docker-jitsi-meet/jibri/rootfs/etc/services.d/30-jibri/ 
+docker-jitsi-meet/jibri/rootfs/etc/services.d/30-jibri/run 
+docker-jitsi-meet/jibri/rootfs/etc/cont-init.d/ 
+docker-jitsi-meet/jibri/rootfs/etc/cont-init.d/10-config 
+docker-jitsi-meet/jibri/rootfs/defaults/ 
+docker-jitsi-meet/jibri/rootfs/defaults/config.json 
+docker-jitsi-meet/jibri/rootfs/defaults/logging.properties 
+docker-jitsi-meet/jibri/Dockerfile 
+docker-jitsi-meet/.env 
+docker-jitsi-meet/LICENSE 
+docker-jitsi-meet/jibri.yml 
+docker-jitsi-meet/prosody/ 
+docker-jitsi-meet/prosody/Makefile 
+docker-jitsi-meet/prosody/rootfs/ 
+docker-jitsi-meet/prosody/rootfs/etc/ 
+docker-jitsi-meet/prosody/rootfs/etc/services.d/ 
+docker-jitsi-meet/prosody/rootfs/etc/services.d/10-saslauthd/ 
+docker-jitsi-meet/prosody/rootfs/etc/services.d/10-saslauthd/run 
+docker-jitsi-meet/prosody/rootfs/etc/services.d/prosody/ 
+docker-jitsi-meet/prosody/rootfs/etc/services.d/prosody/run 
+docker-jitsi-meet/prosody/rootfs/etc/sasl/ 
+docker-jitsi-meet/prosody/rootfs/etc/sasl/xmpp.conf 
+docker-jitsi-meet/prosody/rootfs/etc/cont-init.d/ 
+docker-jitsi-meet/prosody/rootfs/etc/cont-init.d/10-config 
+docker-jitsi-meet/prosody/rootfs/defaults/ 
+docker-jitsi-meet/prosody/rootfs/defaults/conf.d/ 
+docker-jitsi-meet/prosody/rootfs/defaults/conf.d/jitsi-meet.cfg.lua 
+docker-jitsi-meet/prosody/rootfs/defaults/saslauthd.conf 
+docker-jitsi-meet/prosody/rootfs/defaults/prosody.cfg.lua 
+docker-jitsi-meet/prosody/Dockerfile 
+docker-jitsi-meet/examples/ 
+docker-jitsi-meet/examples/README.md 
+docker-jitsi-meet/examples/traefik/ 
+docker-jitsi-meet/examples/traefik/README.md 
+docker-jitsi-meet/examples/traefik/docker-compose.yml 
+docker-jitsi-meet/examples/kubernetes/ 
+docker-jitsi-meet/examples/kubernetes/README.md 
+docker-jitsi-meet/examples/kubernetes/deployment.yaml 
+docker-jitsi-meet/examples/kubernetes/web-service.yaml 
+docker-jitsi-meet/examples/kubernetes/jvb-service.yaml 
+docker-jitsi-meet/examples/traefik-v2/ 
+docker-jitsi-meet/examples/traefik-v2/README.md 
+docker-jitsi-meet/examples/traefik-v2/docker-compose.yml 
+docker-jitsi-meet/env.example 
+docker-jitsi-meet/etherpad.yml 
+```
 sudo tar -czvf backup_20200508_jitsi-meet-cfg.tar.gz .jitsi-meet-cfg/ <br>
-.jitsi-meet-cfg/ <br>
-.jitsi-meet-cfg/web/ <br>
-.jitsi-meet-cfg/web/le-renew.log <br>
-.jitsi-meet-cfg/web/keys/ <br>
-.jitsi-meet-cfg/web/interface_config.js <br>
-.jitsi-meet-cfg/web/letsencrypt/ <br>
-.jitsi-meet-cfg/web/letsencrypt/csr/ <br>
-.jitsi-meet-cfg/web/letsencrypt/csr/0000_csr-certbot.pem <br>
-.jitsi-meet-cfg/web/letsencrypt/accounts/ <br>
-.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/ <br>
-.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/ <br>
-.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/375d7a4a204869fe7db094935a2517a8/ <br>
-.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/375d7a4a204869fe7db094935a2517a8/private_key.json <br>
-.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/375d7a4a204869fe7db094935a2517a8/meta.json <br>
-.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/375d7a4a204869fe7db094935a2517a8/regr.json <br>
-.jitsi-meet-cfg/web/letsencrypt/renewal-hooks/ <br>
-.jitsi-meet-cfg/web/letsencrypt/renewal-hooks/deploy/ <br>
-.jitsi-meet-cfg/web/letsencrypt/renewal-hooks/post/ <br>
-.jitsi-meet-cfg/web/letsencrypt/renewal-hooks/pre/ <br>
-.jitsi-meet-cfg/web/letsencrypt/keys/ <br>
-.jitsi-meet-cfg/web/letsencrypt/keys/0000_key-certbot.pem <br>
-.jitsi-meet-cfg/web/letsencrypt/archive/ <br>
-.jitsi-meet-cfg/web/letsencrypt/archive/vpsmeet.idjvnix.com/ <br>
-.jitsi-meet-cfg/web/letsencrypt/archive/vpsmeet.idjvnix.com/fullchain1.pem <br>
-.jitsi-meet-cfg/web/letsencrypt/archive/vpsmeet.idjvnix.com/chain1.pem <br>
-.jitsi-meet-cfg/web/letsencrypt/archive/vpsmeet.idjvnix.com/cert1.pem <br>
-.jitsi-meet-cfg/web/letsencrypt/archive/vpsmeet.idjvnix.com/privkey1.pem <br>
-.jitsi-meet-cfg/web/letsencrypt/renewal/ <br>
-.jitsi-meet-cfg/web/letsencrypt/renewal/vpsmeet.idjvnix.com.conf <br>
-.jitsi-meet-cfg/web/letsencrypt/live/ <br>
-.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/ <br>
-.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/fullchain.pem <br>
-.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/cert.pem <br>
-.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/chain.pem <br>
-.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/README <br>
-.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/privkey.pem <br>
-.jitsi-meet-cfg/web/letsencrypt/live/README <br>
-.jitsi-meet-cfg/web/config.js <br>
-.jitsi-meet-cfg/web/nginx/ <br>
-.jitsi-meet-cfg/web/nginx/ssl.conf <br>
-.jitsi-meet-cfg/web/nginx/meet.conf <br>
-.jitsi-meet-cfg/web/nginx/nginx.conf <br>
-.jitsi-meet-cfg/web/nginx/site-confs/ <br>
-.jitsi-meet-cfg/web/nginx/site-confs/default <br>
-.jitsi-meet-cfg/jigasi/ <br>
-.jitsi-meet-cfg/transcripts/ <br>
-.jitsi-meet-cfg/jicofo/ <br>
-.jitsi-meet-cfg/jicofo/sip-communicator.properties <br>
-.jitsi-meet-cfg/jicofo/logging.properties <br>
-.jitsi-meet-cfg/jvb/ <br>
-.jitsi-meet-cfg/jvb/sip-communicator.properties <br>
-.jitsi-meet-cfg/jvb/logging.properties <br>
-.jitsi-meet-cfg/jibri/ <br>
-.jitsi-meet-cfg/prosody/ <br>
-.jitsi-meet-cfg/prosody/config/ <br>
-.jitsi-meet-cfg/prosody/config/data/ <br>
-.jitsi-meet-cfg/prosody/config/data/recorder%2emeet%2ejitsi/ <br>
-.jitsi-meet-cfg/prosody/config/data/recorder%2emeet%2ejitsi/accounts/ <br>
-.jitsi-meet-cfg/prosody/config/data/recorder%2emeet%2ejitsi/accounts/recorder.dat <br>
-.jitsi-meet-cfg/prosody/config/data/.rnd <br>
-.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/ <br>
-.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/accounts/ <br>
-.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/accounts/jibri.dat <br>
-.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/accounts/jvb.dat <br>
-.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/accounts/jigasi.dat <br>
-.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/accounts/focus.dat <br>
-.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/offline/ <br>
-.jitsi-meet-cfg/prosody/config/conf.d/ <br>
-.jitsi-meet-cfg/prosody/config/conf.d/jitsi-meet.cfg.lua <br>
-.jitsi-meet-cfg/prosody/config/saslauthd.conf <br>
-.jitsi-meet-cfg/prosody/config/certs/ <br>
-.jitsi-meet-cfg/prosody/config/certs/auth.meet.jitsi.key <br>
-.jitsi-meet-cfg/prosody/config/certs/meet.jitsi.crt <br>
-.jitsi-meet-cfg/prosody/config/certs/meet.jitsi.key <br>
-.jitsi-meet-cfg/prosody/config/certs/auth.meet.jitsi.crt <br>
-.jitsi-meet-cfg/prosody/config/prosody.cfg.lua <br>
-.jitsi-meet-cfg/prosody/prosody-plugins-custom/ <br>
-<br>
-
+```
+.jitsi-meet-cfg/ 
+.jitsi-meet-cfg/web/ 
+.jitsi-meet-cfg/web/le-renew.log 
+.jitsi-meet-cfg/web/keys/ 
+.jitsi-meet-cfg/web/interface_config.js 
+.jitsi-meet-cfg/web/letsencrypt/ 
+.jitsi-meet-cfg/web/letsencrypt/csr/ 
+.jitsi-meet-cfg/web/letsencrypt/csr/0000_csr-certbot.pem 
+.jitsi-meet-cfg/web/letsencrypt/accounts/ 
+.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/ 
+.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/ 
+.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/375d7a4a204869fe7db094935a2517a8/ 
+.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/375d7a4a204869fe7db094935a2517a8/private_key.json 
+.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/375d7a4a204869fe7db094935a2517a8/meta.json 
+.jitsi-meet-cfg/web/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/375d7a4a204869fe7db094935a2517a8/regr.json 
+.jitsi-meet-cfg/web/letsencrypt/renewal-hooks/ 
+.jitsi-meet-cfg/web/letsencrypt/renewal-hooks/deploy/ 
+.jitsi-meet-cfg/web/letsencrypt/renewal-hooks/post/ 
+.jitsi-meet-cfg/web/letsencrypt/renewal-hooks/pre/ 
+.jitsi-meet-cfg/web/letsencrypt/keys/ 
+.jitsi-meet-cfg/web/letsencrypt/keys/0000_key-certbot.pem 
+.jitsi-meet-cfg/web/letsencrypt/archive/ 
+.jitsi-meet-cfg/web/letsencrypt/archive/vpsmeet.idjvnix.com/ 
+.jitsi-meet-cfg/web/letsencrypt/archive/vpsmeet.idjvnix.com/fullchain1.pem 
+.jitsi-meet-cfg/web/letsencrypt/archive/vpsmeet.idjvnix.com/chain1.pem 
+.jitsi-meet-cfg/web/letsencrypt/archive/vpsmeet.idjvnix.com/cert1.pem 
+.jitsi-meet-cfg/web/letsencrypt/archive/vpsmeet.idjvnix.com/privkey1.pem 
+.jitsi-meet-cfg/web/letsencrypt/renewal/ 
+.jitsi-meet-cfg/web/letsencrypt/renewal/vpsmeet.idjvnix.com.conf 
+.jitsi-meet-cfg/web/letsencrypt/live/ 
+.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/ 
+.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/fullchain.pem 
+.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/cert.pem 
+.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/chain.pem 
+.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/README 
+.jitsi-meet-cfg/web/letsencrypt/live/vpsmeet.idjvnix.com/privkey.pem 
+.jitsi-meet-cfg/web/letsencrypt/live/README 
+.jitsi-meet-cfg/web/config.js 
+.jitsi-meet-cfg/web/nginx/ 
+.jitsi-meet-cfg/web/nginx/ssl.conf 
+.jitsi-meet-cfg/web/nginx/meet.conf 
+.jitsi-meet-cfg/web/nginx/nginx.conf 
+.jitsi-meet-cfg/web/nginx/site-confs/ 
+.jitsi-meet-cfg/web/nginx/site-confs/default 
+.jitsi-meet-cfg/jigasi/ 
+.jitsi-meet-cfg/transcripts/ 
+.jitsi-meet-cfg/jicofo/ 
+.jitsi-meet-cfg/jicofo/sip-communicator.properties 
+.jitsi-meet-cfg/jicofo/logging.properties 
+.jitsi-meet-cfg/jvb/ 
+.jitsi-meet-cfg/jvb/sip-communicator.properties 
+.jitsi-meet-cfg/jvb/logging.properties 
+.jitsi-meet-cfg/jibri/ 
+.jitsi-meet-cfg/prosody/ 
+.jitsi-meet-cfg/prosody/config/ 
+.jitsi-meet-cfg/prosody/config/data/ 
+.jitsi-meet-cfg/prosody/config/data/recorder%2emeet%2ejitsi/ 
+.jitsi-meet-cfg/prosody/config/data/recorder%2emeet%2ejitsi/accounts/ 
+.jitsi-meet-cfg/prosody/config/data/recorder%2emeet%2ejitsi/accounts/recorder.dat 
+.jitsi-meet-cfg/prosody/config/data/.rnd 
+.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/ 
+.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/accounts/ 
+.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/accounts/jibri.dat 
+.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/accounts/jvb.dat 
+.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/accounts/jigasi.dat 
+.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/accounts/focus.dat 
+.jitsi-meet-cfg/prosody/config/data/auth%2emeet%2ejitsi/offline/ 
+.jitsi-meet-cfg/prosody/config/conf.d/ 
+.jitsi-meet-cfg/prosody/config/conf.d/jitsi-meet.cfg.lua 
+.jitsi-meet-cfg/prosody/config/saslauthd.conf 
+.jitsi-meet-cfg/prosody/config/certs/ 
+.jitsi-meet-cfg/prosody/config/certs/auth.meet.jitsi.key 
+.jitsi-meet-cfg/prosody/config/certs/meet.jitsi.crt 
+.jitsi-meet-cfg/prosody/config/certs/meet.jitsi.key 
+.jitsi-meet-cfg/prosody/config/certs/auth.meet.jitsi.crt 
+.jitsi-meet-cfg/prosody/config/prosody.cfg.lua 
+.jitsi-meet-cfg/prosody/prosody-plugins-custom/ 
+```
 
 **Refference :** <br>
 https://github.com/jitsi/jitsi-meet/blob/master/doc/README.md <br>
