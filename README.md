@@ -64,7 +64,7 @@ sudo apt update <br>
 sudo apt-get install apt-transport-https <br>
 sudo apt-get update <br>
 <br>
-sudo apt-get install -yjitsi-meet <br>
+sudo apt-get install jitsi-meet <br>
 ....... <br>
 debconf: falling back to frontend: Readline <br>
 Configuring jitsi-videobridge2 <br>
