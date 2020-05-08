@@ -102,7 +102,8 @@ Having a certificate signed by a recognised CA,
 it can be uploaded on the server and point its location. 
 The default filenames will be /etc/ssl/--domain.name--.key for the key 
 and /etc/ssl/--domain.name--.crt for the certificate. 
-  1. Generate a new self-signed certificate (You will later get a chance to obtain a Let's encrypt certificate) 
+  1. Generate a new self-signed certificate 
+     (You will later get a chance to obtain a Let's encrypt certificate) 
   2. I want to use my own certificate 
 SSL certificate for the Jitsi Meet instance 2 
 The full path to the SSL key file on the server. 
@@ -278,10 +279,9 @@ docker-jitsi-meet_web_1       /init     Up      0.0.0.0:443->443/tcp, 0.0.0.0:80
 ```
 
 **Notes :** <br>
+a. If you edit file ".env" then you must remove ~/.jitsi-meet-cfg then recreate ~/.jitsi-meet-cfg <br> 
 <br>
-- If you edit file ".env" then you must remove ~/.jitsi-meet-cfg then recreate ~/.jitsi-meet-cfg <br> 
-<br>
-- Backup Source Code & Config Jitsi-Meet Application using this command <br> 
+b. Backup Source Code & Config Jitsi-Meet Application using this command <br> 
 <br>
 sudo tar -czvf backup_20200508_docker-jitsi-meet.tar.gz docker-jitsi-meet/ <br>
 docker-jitsi-meet/ <br>
