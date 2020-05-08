@@ -95,13 +95,21 @@ Hostname: vpsmeet.idjvnix.com
 debconf: falling back to frontend: Readline 
 Configuring jitsi-meet-web-config 
 --------------------------------- 
-Jitsi Meet is best to be set up with an SSL certificate. Having no certificate, a self-signed one will be generated. By choosing self-signed you will later have a chance to install Let’s Encrypt certificates. Having a certificate signed by a recognised CA, it can be uploaded on the server and point its location. The default filenames will be /etc/ssl/--domain.name--.key for the key and /etc/ssl/--domain.name--.crt for the certificate. 
+Jitsi Meet is best to be set up with an SSL certificate. 
+Having no certificate, a self-signed one will be generated. 
+By choosing self-signed you will later have a chance to install Let’s Encrypt certificates. 
+Having a certificate signed by a recognised CA, 
+it can be uploaded on the server and point its location. 
+The default filenames will be /etc/ssl/--domain.name--.key for the key 
+and /etc/ssl/--domain.name--.crt for the certificate. 
   1. Generate a new self-signed certificate (You will later get a chance to obtain a Let's encrypt certificate) 
   2. I want to use my own certificate 
 SSL certificate for the Jitsi Meet instance 2 
-The full path to the SSL key file on the server. If it has not been uploaded, now is a good time to do so. 
+The full path to the SSL key file on the server. 
+If it has not been uploaded, now is a good time to do so. 
 Full local server path to the SSL key file: /etc/ssl/private/ 
-The full path to the SSL certificate file on the server. If you haven't uploaded it, now is a good time to upload it in another console. 
+The full path to the SSL certificate file on the server. 
+If you haven't uploaded it, now is a good time to upload it in another console. 
 Full local server path to the SSL certificate file: /etc/ssl/certs/ 
 .......
 debconf: falling back to frontend: Readline 
@@ -155,44 +163,48 @@ Server running at http://0.0.0.0:3000/
 
 **1.02. Prepare Hosts & Hostname (FQDN)** <br>
 sudo nano /etc/hosts <br>
+```
 127.0.0.1	localhost <br>
-#--- Change the setting below to suit your condition <br>
-139.99.90.116 	    vpsmeet.idjvnix.com      vpsmeet <br>
-<br>
+#--- Change the setting below to suit your condition 
+139.99.90.116 	    vpsmeet.idjvnix.com      vpsmeet 
+```
 #--- Change the command below to suit your condition <br>
 sudo hostnamectl set-hostname vpsmeet.idjvnix.com <br>
 <br>
 sudo hostnamectl status <br>
 <br>
 hostname <br>
-vpsmeet.idjvnix.com <br>
-<br>
+```
+vpsmeet.idjvnix.com 
+```
 #--- Change the command below to suit your condition <br>
 ping vpsmeet <br>
 ping vpsmeet.idjvnix.com <br>
 <br>
 
-###### 1.03. Prepare Timezone, Date & NTP Synchronized
+**1.03. Prepare Timezone, Date & NTP Synchronized** <br>
 sudo timedatectl list-timezones |grep Asia <br>
 sudo timedatectl set-timezone Asia/Jakarta <br>
 sudo timedatectl set-ntp on <br>
 sudo systemctl restart systemd-timedated.service <br>
 <br>
 sudo timedatectl status <br>
-      Local time: Thu 2020-04-30 06:10:00 WIB <br>
-  Universal time: Wed 2020-04-29 23:10:00 UTC <br>
-        RTC time: Wed 2020-04-29 23:10:00 <br>
-       Time zone: Asia/Jakarta (WIB, +0700) <br>
-     NTP enabled: yes <br>
-NTP synchronized: yes <br>
- RTC in local TZ: no <br>
-      DST active: n/a <br>
-<br>
+```
+      Local time: Thu 2020-04-30 06:10:00 WIB 
+  Universal time: Wed 2020-04-29 23:10:00 UTC 
+        RTC time: Wed 2020-04-29 23:10:00 
+       Time zone: Asia/Jakarta (WIB, +0700) 
+     NTP enabled: yes 
+NTP synchronized: yes 
+ RTC in local TZ: no 
+      DST active: n/a 
+```
 date <br>
-Thu Apr 30 06:11:58 WIB 2020 <br>
-<br>
+```
+Thu Apr 30 06:11:58 WIB 2020 
+```
 
-###### 1.04. Prepare Docker Repo, Install Docker & Install Docker Compose
+**1.04. Prepare Docker Repo, Install Docker & Install Docker Compose** <br>
 sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine <br>
 <br>
 sudo yum check-update <br>
@@ -217,21 +229,25 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose <br>
 docker-compose version <br>
 <br>
 
-###### 1.05. Install Jitsi Meet (via Docker)
+**1.05. Install Jitsi Meet (via Docker)** <br>
 git clone https://github.com/jitsi/docker-jitsi-meet && cd docker-jitsi-meet <br>
 <br>
 pwd <br>
-/home/bayu/docker-jitsi-meet <br>
-<br>
+```
+/home/bayu/docker-jitsi-meet 
+```
 cp env.example .env <br>
 ./gen-passwords.sh <br>
+<br>
 mkdir -p ~/.jitsi-meet-cfg/{web/letsencrypt,transcripts,prosody,jicofo,jvb,jigasi,jibri} <br>
 <br>
 ls -lah /home/bayu/ |grep jitsi <br>
+```
 drwxrwxr-x  14 bayu bayu 4,0K Apr 30 07:18 docker-jitsi-meet <br>
 drwxrwxr-x   9 bayu bayu 4,0K Apr 30 07:19 .jitsi-meet-cfg <br>
-<br>
+```
 nano .env <br>
+```
 HTTP_PORT=80 <br>
 HTTPS_PORT=443 <br>
 TZ=Asia/Jakarta <br>
@@ -244,7 +260,7 @@ LETSENCRYPT_DOMAIN=vpsmeet.idjvnix.com <br>
 LETSENCRYPT_EMAIL=bayuzzz@gmail.com <br>
 DISABLE_HTTPS=0 <br>
 ENABLE_HTTP_REDIRECT=1 <br>
-<br>
+```
 #--- To stop command below, using "ctrl+c" <br>
 docker-compose up <br>
 <br>
@@ -252,17 +268,16 @@ docker-compose up <br>
 docker-compose up -d <br>
 <br>
 docker-compose ps -a <br>
+```
            Name               Command   State                        Ports                        <br>
 ------------------------------------------------------------------------------------------------  <br>
 docker-jitsi-meet_jicofo_1    /init     Up                                                        <br>
 docker-jitsi-meet_jvb_1       /init     Up      0.0.0.0:10000->10000/udp, 0.0.0.0:4443->4443/tcp  <br>
 docker-jitsi-meet_prosody_1   /init     Up      5222/tcp, 5269/tcp, 5280/tcp, 5347/tcp            <br>
 docker-jitsi-meet_web_1       /init     Up      0.0.0.0:443->443/tcp, 0.0.0.0:80->80/tcp          <br>
-<br>
+```
 
-
-
-###### Notes :
+**Notes :** <br>
 <br>
 - If you edit file ".env" then you must remove ~/.jitsi-meet-cfg then recreate ~/.jitsi-meet-cfg <br> 
 <br>
@@ -552,7 +567,7 @@ sudo tar -czvf backup_20200508_jitsi-meet-cfg.tar.gz .jitsi-meet-cfg/ <br>
 <br>
 
 
-###### Refference :
+**Refference :** <br>
 https://github.com/jitsi/jitsi-meet/blob/master/doc/README.md <br>
 https://github.com/jitsi/jitsi-meet/blob/master/doc/quick-install.md <br>
 https://github.com/jitsi/docker-jitsi-meet/blob/master/README.md <br>
