@@ -90,6 +90,7 @@ ping vpsmeet.idjvnix.com <br>
 <br>
 
 **2.03. Prepare SSL Certificate for Your Domain** <br>
+(You can buy SSL from https://www.geotrust.com/ or free SSL from https://www.sslforfree.com/) <br>
 sudo netstat -plntu <br>
 ```
 Active Internet connections (only servers) <br>
