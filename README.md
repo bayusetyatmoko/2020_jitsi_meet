@@ -685,6 +685,10 @@ sudo tar -czvf backup_20200508_jitsi-meet-cfg.tar.gz .jitsi-meet-cfg/ <br>
 .jitsi-meet-cfg/prosody/prosody-plugins-custom/ 
 ```
 
+**[done].** <br>
+<br>
+
+
 **Refference :** <br>
 https://github.com/jitsi/jitsi-meet/blob/master/doc/README.md <br>
 https://github.com/jitsi/jitsi-meet/blob/master/doc/quick-install.md <br>
