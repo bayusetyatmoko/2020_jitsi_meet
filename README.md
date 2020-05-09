@@ -64,7 +64,7 @@ ssh -p 2222 bayu@localhost <br>
 ```
 bayu@localhost's password: 1234567x
 ```
-(Don't forget change user bayu passwd & add another sudo user) <br>
+(Don't forget change bayu user password & add another sudo user) <br>
 <br>
 sudo nano /etc/hosts <br>
 ```
