@@ -1,21 +1,64 @@
 # 2020_jitsi_meet
-How To Jitsi Meet Instalation (Surabaya, 2020-05-05)
-
+How To Jitsi Meet Instalation (Surabaya, 2020-05-05) <br>
+<br>
 ## Case 2 - Install Jitsi Meet on Host O/S Centos 7 (via docker images) 
 **2.01. Prepare Host O/S Centos 7 (Do step 1.01 - 1.04) below ...** <br>
-**2.02. Use Docker Images from https://hub.docker.com/repository/docker/bayusetyatmoko/ub20dev** <br>
-docker pull bayusetyatmoko/ub20dev <br>
+**2.02. Use Docker Images from https://hub.docker.com/_/ubuntu?tab=tags** <br>
+docker pull ubuntu:20.04 <br>
 <br>
-docker volume create data-jitsi-production <br>
-docker volume list <br>
-docker volume inspect data-jitsi-production <br>
-<br>
- docker run --name=ub20dev_jitsi_production -d -it -p 2222:22 -p 80:80 -p 443:443 -p 10000:10000 --privileged -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket bayusetyatmoko/ub20dev /bin/bash <br>
-<br>
-docker exec -it ub20dev_jitsi_production /bin/bash -c "/etc/init.d/ssh restart" <br>
+docker run --name=ub20vpsmeet -d -it -p 2222:22/tcp -p 80:80/tcp -p 443:443/tcp -p 10000:10000/udp --privileged -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket ubuntu:20.04 /bin/bash
 <br>
 docker ps -a <br>
+```
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                                                                                      NAMES
+f00ed2c7ab64        ubuntu:20.04        "/bin/bash"         8 seconds ago       Up 7 seconds        0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp, 0.0.0.0:10000->10000/udp, 0.0.0.0:2222->22/tcp   ub20vpsmeet
+```
 sudo netstat -plntu <br>
+```
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp6       0      0 :::443                  :::*                    LISTEN      59924/docker-proxy  
+tcp6       0      0 :::2222                 :::*                    LISTEN      59946/docker-proxy  
+tcp6       0      0 :::80                   :::*                    LISTEN      59935/docker-proxy  
+udp6       0      0 :::10000                :::*                                59913/docker-proxy  
+```
+docker exec -it ub20vpsmeet /bin/bash <br>
+<br>
+apt update <br>
+apt list --upgradable <br>
+apt full-upgrade <br>
+apt clean <br>
+apt autoremove <br>
+apt autoclean <br>
+<br>
+apt install tzdata <br>
+date <br>
+```
+Sat May  9 10:21:18 WIB 2020
+```
+apt install sudo <br>
+adduser bayu <br>
+usermod -aG sudo bayu <br>
+<br>
+apt install gnupg apt-transport-https <br>
+apt install iputils-ping net-tools wget git unzip nano curl elinks lynx python3 <br>
+apt-get install openssh-server openssh-client openssh-sftp-server <br>
+<br>
+/usr/sbin/sshd <br>
+```
+Missing privilege separation directory: /run/sshd <br>
+```
+mkdir /var/run/sshd <br>
+/etc/init.d/ssh restart <br>
+<br>
+netstat -plntu <br>
+```
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      4670/sshd           
+tcp6       0      0 :::22                   :::*                    LISTEN      4670/sshd        
+```
+**exit** <br>
+**(Exit from Root User Terminal - Docker Container)** <br>
 <br>
 ssh -p 2222 bayu@localhost <br>
 ```
@@ -46,7 +89,7 @@ ping vpsmeet <br>
 ping vpsmeet.idjvnix.com <br>
 <br>
 
-**2.03. Install Jitsi-Meet & Configure SSL on nginx** <br>
+**2.03. Prepare SSL Certificate for Your Domain** <br>
 sudo netstat -plntu <br>
 ```
 Active Internet connections (only servers) <br>
@@ -61,8 +104,6 @@ pwd <br>
 ls -lh <br>
 ```
 total 28K <br>
--rw-rw-r-- 1 bayu bayu   87 May  8 06:10 KsBBHiqkCFgNPImcl79KWxxRqOakC5FaFpm4VbEdPmE 
--rw-rw-r-- 1 bayu bayu  333 May  6 11:25 app.js 
 -rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 ca_bundle.crt 
 -rw-rw-r-- 1 bayu bayu 1.9K May  8 06:17 certificate.crt 
 -rw-rw-r-- 1 bayu bayu 1.7K May  8 06:17 private.key 
@@ -71,22 +112,22 @@ total 28K <br>
 sudo cp certificate.crt /etc/ssl/certs/vpsmeet.idjvnix.com.crt <br>
 sudo cp private.key /etc/ssl/private/vpsmeet.idjvnix.com.key <br>
 <br>
-sudo apt update <br>
-sudo apt list --upgradable <br>
-sudo apt full-upgrade <br>
-sudo apt clean <br>
-sudo apt autoremove <br>
-sudo apt autoclean <br>
-<br>
-echo 'deb https://download.jitsi.org stable/' | sudo tee /etc/apt/sources.list.d/jitsi-stable.list <br>
-wget -qO -  https://download.jitsi.org/jitsi-key.gpg.key | sudo apt-key add - <br>
-<br>
-sudo apt update <br>
-sudo apt install apt-transport-https <br>
-<br>
-sudo apt install jitsi-meet <br>
+
+**2.04. Install & Configure Jitsi-Meet** <br>
+Before Install Jitsi-Meet Remember Your Own SSL certificate Location, <br>
 ```
-.......
+Hostname: vpsmeet.idjvnix.com
+Full local server path to the SSL key file: /etc/ssl/private/vpsmeet.idjvnix.com.key 
+Full local server path to the SSL certificate file: /etc/ssl/certs/vpsmeet.idjvnix.com.crt 
+```
+sudo echo 'deb https://download.jitsi.org stable/' | sudo tee /etc/apt/sources.list.d/jitsi-stable.list <br>
+sudo wget -qO - https://download.jitsi.org/jitsi-key.gpg.key | sudo apt-key add - <br>
+<br>
+sudo apt update <br>
+sudo apt install jitsi-meet <br>
+<br>
+```
+....... 
 debconf: falling back to frontend: Readline 
 Configuring jitsi-videobridge2 
 ------------------------------ 
@@ -109,10 +150,10 @@ and /etc/ssl/--domain.name--.crt for the certificate.
 SSL certificate for the Jitsi Meet instance 2 
 The full path to the SSL key file on the server. 
 If it has not been uploaded, now is a good time to do so. 
-Full local server path to the SSL key file: /etc/ssl/private/ 
+Full local server path to the SSL key file: /etc/ssl/private/vpsmeet.idjvnix.com.key 
 The full path to the SSL certificate file on the server. 
 If you haven't uploaded it, now is a good time to upload it in another console. 
-Full local server path to the SSL certificate file: /etc/ssl/certs/ 
+Full local server path to the SSL certificate file: /etc/ssl/certs/vpsmeet.idjvnix.com.crt 
 .......
 debconf: falling back to frontend: Readline 
 ------------------------------------------------ 
@@ -126,6 +167,83 @@ Processing triggers for systemd (245.4-4ubuntu3) ...
 Processing triggers for libc-bin (2.31-0ubuntu9) ... 
 ....... 
 ```
+sudo /etc/init.d/prosody restart <br>
+sudo /etc/init.d/jitsi-videobridge2 restart <br>
+sudo /etc/init.d/jicofo restart <br>
+sudo /etc/init.d/nginx restart <br>
+<br>
+sudo netstat -plntu <br>
+```
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:5280            0.0.0.0:*               LISTEN      9547/lua5.2         
+tcp        0      0 127.0.0.1:5347          0.0.0.0:*               LISTEN      9547/lua5.2         
+tcp        0      0 0.0.0.0:5222            0.0.0.0:*               LISTEN      9547/lua5.2         
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      9818/nginx: master  
+tcp        0      0 0.0.0.0:5269            0.0.0.0:*               LISTEN      9547/lua5.2         
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      4871/sshd: /usr/sbi 
+tcp        0      0 0.0.0.0:8888            0.0.0.0:*               LISTEN      9691/java           
+tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      9818/nginx: master  
+tcp        0      0 0.0.0.0:4444            0.0.0.0:*               LISTEN      9818/nginx: master  
+tcp6       0      0 :::5280                 :::*                    LISTEN      9547/lua5.2         
+tcp6       0      0 :::5222                 :::*                    LISTEN      9547/lua5.2         
+tcp6       0      0 :::80                   :::*                    LISTEN      9818/nginx: master  
+tcp6       0      0 :::5269                 :::*                    LISTEN      9547/lua5.2         
+tcp6       0      0 :::22                   :::*                    LISTEN      4871/sshd: /usr/sbi 
+tcp6       0      0 :::443                  :::*                    LISTEN      9818/nginx: master  
+tcp6       0      0 :::4444                 :::*                    LISTEN      9818/nginx: master  
+udp        0      0 0.0.0.0:35352           0.0.0.0:*                           9691/java           
+udp        0      0 0.0.0.0:5000            0.0.0.0:*                           9614/java           
+udp        0      0 172.17.0.2:10000        0.0.0.0:*                           9614/java           
+udp6       0      0 :::5000                 :::*                                9614/java           
+```
+**exit** <br>
+**(Exit from Normal User Terminal - Docker Container)** <br>
+<br>
+sudo netstat -plntu <br>
+```
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp6       0      0 :::443                  :::*                    LISTEN      59924/docker-proxy  
+tcp6       0      0 :::2222                 :::*                    LISTEN      59946/docker-proxy  
+tcp6       0      0 :::80                   :::*                    LISTEN      59935/docker-proxy  
+udp6       0      0 :::10000                :::*                                59913/docker-proxy  
+```
+
+**2.05. Backup Images to The Cloud (https://hub.docker.com/)** <br>
+docker ps -a <br>
+```
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                                                                                      NAMES
+f00ed2c7ab64        ubuntu:20.04        "/bin/bash"         About an hour ago   Up About an hour    0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp, 0.0.0.0:10000->10000/udp, 0.0.0.0:2222->22/tcp   ub20vpsmeet
+```
+docker kill ub20vpsmeet <br>
+<br>
+docker ps -a <br>
+```
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                        PORTS               NAMES
+f00ed2c7ab64        ubuntu:20.04        "/bin/bash"         About an hour ago   Exited (137) 26 seconds ago                       ub20vpsmeet
+```
+docker ps -lq <br>
+```
+f00ed2c7ab64
+```
+docker login <br>
+<br>
+docker commit -a bayu_ub20vpsmeet f00ed2c7ab64 bayusetyatmoko/ub20vpsmeet <br>
+docker commit -a bayu_ub20vpsmeet f00ed2c7ab64 bayusetyatmoko/ub20vpsmeet:default <br>
+<br>
+docker images <br>
+```
+REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
+bayusetyatmoko/ub20vpsmeet   default             119436365577        45 seconds ago       605MB
+bayusetyatmoko/ub20vpsmeet   latest              a13de9e550e9        About a minute ago   605MB
+ubuntu                       20.04               1d622ef86b13        2 weeks ago          73.9MB
+```
+docker push bayusetyatmoko/ub20vpsmeet <br>
+docker push bayusetyatmoko/ub20vpsmeet:default <br>
+<br>
+**[done].** <br>
+<br>
 
 ## Case 1 - Install Jitsi Meet on Host O/S Centos 7 (via docker compose) 
 **1.01. Prepare Centos Repo & Install Tools** <br>
@@ -230,7 +348,7 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose <br>
 docker-compose version <br>
 <br>
 
-**1.05. Install Jitsi Meet (via Docker)** <br>
+**1.05. Install Jitsi Meet (via Docker Compose)** <br>
 git clone https://github.com/jitsi/docker-jitsi-meet && cd docker-jitsi-meet <br>
 <br>
 pwd <br>
