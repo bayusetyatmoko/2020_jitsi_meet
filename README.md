@@ -81,10 +81,10 @@ sudo apt autoclean <br>
 echo 'deb https://download.jitsi.org stable/' | sudo tee /etc/apt/sources.list.d/jitsi-stable.list <br>
 wget -qO -  https://download.jitsi.org/jitsi-key.gpg.key | sudo apt-key add - <br>
 <br>
-sudo apt-get update <br>
-sudo apt-get install apt-transport-https <br>
+sudo apt update <br>
+sudo apt install apt-transport-https <br>
 <br>
-sudo apt-get install jitsi-meet <br>
+sudo apt install jitsi-meet <br>
 ```
 .......
 debconf: falling back to frontend: Readline 
