@@ -6,7 +6,7 @@ How To Jitsi Meet Instalation (Surabaya, 2020-05-05) <br>
 **2.02. Use Docker Images from https://hub.docker.com/_/ubuntu?tab=tags** <br>
 docker pull ubuntu:20.04 <br>
 <br>
-docker run --name=ub20vpsmeet -d -it -p 2222:22/tcp -p 80:80/tcp -p 443:443/tcp -p 10000:10000/udp --privileged -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket ubuntu:20.04 /bin/bash
+docker run --name=ub20vpsmeet -d -it -p 2222:22/tcp -p 80:80/tcp -p 443:443/tcp -p 10000:10000/udp --privileged -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket ubuntu:20.04 /bin/bash <br>
 <br>
 docker ps -a <br>
 ```
