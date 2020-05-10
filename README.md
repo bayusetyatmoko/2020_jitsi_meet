@@ -45,7 +45,7 @@ apt-get install openssh-server openssh-client openssh-sftp-server <br>
 <br>
 /usr/sbin/sshd <br>
 ```
-Missing privilege separation directory: /run/sshd <br>
+Missing privilege separation directory: /run/sshd 
 ```
 mkdir /var/run/sshd <br>
 /etc/init.d/ssh restart <br>
