@@ -211,7 +211,179 @@ tcp6       0      0 :::80                   :::*                    LISTEN      
 udp6       0      0 :::10000                :::*                                59913/docker-proxy  
 ```
 
-**2.05. Backup Images to The Cloud (https://hub.docker.com/)** <br>
+
+**2.05. Modif Secure Domain (Only Auth User Can Create Room)** <br>
+<br>
+ssh -p 2222 bayu@localhost <br>
+```
+bayu@localhost's password: 1234567x
+```
+ls -lh /etc/ <br>
+```
+drwxr-xr-x 5 root root   4.0K May  9 10:33 java-8-openjdk
+drwxr-xr-x 1 root root   4.0K May  9 10:33 jitsi
+drwxr-xr-x 8 root root   4.0K May  9 10:33 nginx
+drwxr-xr-x 5 root root   4.0K May  9 10:34 prosody
+drwxr-xr-x 4 root root   4.0K May  9 10:24 ssl
+-rw-r--r-- 1 root root    326 May  9 10:34 turnserver.conf
+```
+ls -lh /etc/jitsi/ <br>
+```
+drwx------ 1 jicofo jitsi 4.0K May  9 10:34 jicofo
+drwxr-xr-x 2 root   root  4.0K May  9 10:34 meet
+drwxr-x--- 2 jvb    jitsi 4.0K May  9 10:33 videobridge
+```
+ls -lh /etc/prosody/ <br>
+```
+-rw-r--r-- 1 root root     292 Jan 20 19:58 README
+drwxr-x--- 2 root prosody 4.0K May  9 10:34 certs
+drwxr-xr-- 2 root prosody 4.0K May  9 10:34 conf.avail
+drwxr-xr-- 2 root prosody 4.0K May  9 10:34 conf.d
+-rw-r--r-- 1 root root     353 Jan 20 19:58 migrator.cfg.lua
+-rw-r----- 1 root prosody 9.6K Jan 20 19:58 prosody.cfg.lua
+```
+sudo cp /etc/prosody/conf.avail/vpsmeet.idjvnix.com.cfg.lua /etc/prosody/conf.avail/vpsmeet.idjvnix.com.cfg.lua.ori <br>
+<br>
+sudo nano /etc/prosody/conf.avail/vpsmeet.idjvnix.com.cfg.lua <br>
+```
+.......
+VirtualHost "vpsmeet.idjvnix.com"
+        -- Bayu' Remark
+        -- authentication = "anonymous"
+        -- Bayu's Add
+        authentication = "internal_plain"
+.......
+-- Bayu's Add - Virtual Host with Anonymous Login Method for Guests 
+VirtualHost "guest.vpsmeet.idjvnix.com"
+    authentication = "anonymous"
+    c2s_require_encryption = false
+```
+sudo cp /etc/jitsi/meet/vpsmeet.idjvnix.com-config.js /etc/jitsi/meet/vpsmeet.idjvnix.com-config.js.ori <br>
+<br>
+sudo nano /etc/jitsi/meet/vpsmeet.idjvnix.com-config.js <br>
+```
+.......
+    hosts: {
+        // XMPP domain.
+        domain: 'vpsmeet.idjvnix.com',
+        // Bayu's Add - Virtual Domain for Guest User
+        // When using authentication, domain for guest users.
+        anonymousdomain: 'guest.vpsmeet.idjvnix.com',
+.......
+```
+sudo cp /etc/jitsi/jicofo/sip-communicator.properties /etc/jitsi/jicofo/sip-communicator.properties.ori <br>
+<br>
+sudo nano /etc/jitsi/jicofo/sip-communicator.properties <br>
+```
+org.jitsi.jicofo.BRIDGE_MUC=JvbBrewery@internal.auth.vpsmeet.idjvnix.com
+// Bayu's Add -  Jicofo Only Allow request from Auth Domain
+org.jitsi.jicofo.auth.URL=XMPP:vpsmeet.idjvnix.com
+```
+sudo /etc/init.d/prosody restart <br>
+sudo /etc/init.d/jitsi-videobridge2 restart <br>
+sudo /etc/init.d/jicofo restart <br>
+<br>
+##--- Register user as admin video confference <br>
+##--- sudo prosodyctl register (username) vpsmeet.idjvnix.com (password) <br>
+sudo prosodyctl register bayu vpsmeet.idjvnix.com 1234567x <br>
+<br>
+
+**exit** <br>
+**(Exit from Normal User Terminal - Docker Container)** <br>
+<br>
+
+**2.06. Modif Jitsi User Interface (Change Icon & Title)** <br>
+<br>
+ssh -p 2222 bayu@localhost <br>
+```
+bayu@localhost's password: 1234567x
+```
+ls -lh /usr/share/ <br>
+```
+drwxr-xr-x  2 root   root  4.0K May  9 10:33 coturn
+drwxr-xr-x  2 root   root  4.0K May  9 10:33 java
+drwxr-xr-x  1 jicofo jitsi 4.0K May  9 10:49 jicofo
+drwxr-xr-x 12 root   root  4.0K May  9 10:33 jitsi-meet
+drwxr-xr-x  2 root   root  4.0K May  9 10:33 jitsi-meet-prosody
+drwxr-xr-x  2 root   root  4.0K May  9 10:34 jitsi-meet-turnserver
+drwxr-xr-x  2 root   root  4.0K May  9 10:33 jitsi-meet-web-config
+drwxr-xr-x  3 jvb    jitsi 4.0K May  9 10:33 jitsi-videobridge
+drwxr-xr-x  5 root   root  4.0K May  9 10:33 lua
+drwxr-xr-x  4 root   root  4.0K May  9 10:33 nginx
+```
+ls -lh /usr/share/jitsi-meet <br>
+```
+-rw-r--r-- 1 root root   18 Mar 27 00:35 base.html
+-rw-r--r-- 1 root root    0 Nov 12 20:40 body.html
+drwxr-xr-x 2 root root 4.0K May  9 10:33 connection_optimization
+drwxr-xr-x 2 root root 4.0K May  9 10:33 css
+-rw-r--r-- 1 root root 3.6K Feb 26  2017 favicon.ico
+drwxr-xr-x 2 root root 4.0K May  9 10:33 fonts
+-rw-r--r-- 1 root root    0 Nov 12 20:40 head.html
+drwxr-xr-x 2 root root 4.0K May  9 10:33 images
+-rw-r--r-- 1 root root 7.5K May  1 22:32 index.html
+-rw-r--r-- 1 root root 8.8K May  1 05:23 interface_config.js
+drwxr-xr-x 2 root root 4.0K May  9 10:33 lang
+drwxr-xr-x 2 root root 4.0K May  9 10:33 libs
+-rw-r--r-- 1 root root  950 Aug  6  2018 logging_config.js
+-rw-r--r-- 1 root root 748K May  1 02:30 package-lock.json
+-rw-r--r-- 1 root root 5.2K May  1 02:30 package.json
+-rw-r--r-- 1 root root    0 Feb 26  2017 plugin.head.html
+drwxr-xr-x 3 root root 4.0K May  9 10:33 prosody-plugins
+-rw-r--r-- 1 root root   36 Apr  1 03:48 robots.txt
+drwxr-xr-x 2 root root 4.0K May  9 10:33 scripts
+drwxr-xr-x 2 root root 4.0K May  9 10:33 sounds
+drwxr-xr-x 2 root root 4.0K May  9 10:33 static
+-rw-r--r-- 1 root root  608 Mar 14  2019 title.html
+```
+ls -lh /usr/share/jitsi-meet/images/ <br>
+```
+-rw-r--r-- 1 root root  17K Nov 27 03:15 apple-touch-icon.png
+-rw-r--r-- 1 root root 5.9K May  1 22:32 avatar.png
+-rw-r--r-- 1 root root 7.9K Sep  6  2018 btn_google_signin_dark_normal.png
+-rw-r--r-- 1 root root 134K Jan 23 16:35 chromeLogo.svg
+-rw-r--r-- 1 root root 1.8K Nov 27 03:30 dropboxLogo_square.png
+-rw-r--r-- 1 root root 4.2K Feb 26  2017 favicon.ico
+-rw-r--r-- 1 root root  86K Feb 27  2019 flags.png
+-rw-r--r-- 1 root root 251K Feb 27  2019 flags@2x.png
+-rw-r--r-- 1 root root  909 Mar 22  2018 googleLogo.svg
+-rw-r--r-- 1 root root 4.7K May  1 22:32 icon-users.png
+-rw-r--r-- 1 root root 4.4K May  1 22:32 jitsiLogo_square.png
+-rw-r--r-- 1 root root 3.3K May  1 22:32 jitsilogo.png
+-rw-r--r-- 1 root root  19K May  1 22:32 logo-deep-linking.png
+-rw-r--r-- 1 root root  343 Aug 16  2018 microsoftLogo.svg
+-rw-r--r-- 1 root root 2.2K Oct 31  2019 user-groups.svg
+-rw-r--r-- 1 root root  33K Feb 26  2017 watermark.png
+```
+ls -lh /home/bayu/ <br>
+```
+-rw-rw-r-- 1 bayu bayu  31K May 11 05:25 watermark_idjvnix.png
+```
+sudo mv /usr/share/jitsi-meet/images/watermark.png /usr/share/jitsi-meet/images/watermark_jitsi.png <br>
+<br>
+sudo cp /home/bayu/watermark_idjvnix.png /usr/share/jitsi-meet/images/watermark.png <br>
+<br>
+sudo nano /usr/share/jitsi-meet/interface_config.js <br>
+```
+var interfaceConfig = {
+    DEFAULT_BACKGROUND: '#474747',
+    DEFAULT_REMOTE_DISPLAY_NAME: 'Peserta Vicon',
+    DEFAULT_LOCAL_DISPLAY_NAME: 'saya',
+    SHOW_JITSI_WATERMARK: true,
+    JITSI_WATERMARK_LINK: 'https://vpsmeet.idjvnix.com',
+    APP_NAME: 'IDjvnix Vicon',
+    NATIVE_APP_NAME: 'IDjvnix Vicon',
+    PROVIDER_NAME: 'IDjvnix',
+```
+##--- Clear All Your Broswser Cache Data, <br>
+##--- Then Browsing Again Use Your Browser ... <br>
+
+**exit** <br>
+**(Exit from Normal User Terminal - Docker Container)** <br>
+<br>
+
+
+**2.07. Backup Images to The Cloud (https://hub.docker.com/)** <br>
 docker ps -a <br>
 ```
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                                                                                      NAMES
