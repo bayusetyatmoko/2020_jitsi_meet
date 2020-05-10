@@ -247,7 +247,7 @@ docker push bayusetyatmoko/ub20vpsmeet:default <br>
 <br>
 
 ## Case 1 - Install Jitsi Meet on Host O/S Centos 7 (via docker compose) 
-**1.01. Prepare Centos Repo & Install Tools** <br>
+**1.01. Prepare Host O/S Centos 7 Repo & Install Tools** <br>
 sudo yum check-update <br>
 sudo yum install htop wget git unzip nano curl elinks lynx python3 <br>
 <br>
@@ -281,7 +281,7 @@ Server running at http://0.0.0.0:3000/
 (To Stop Service Nodejs, Using "Ctrl + c") 
 ```
 
-**1.02. Prepare Hosts & Hostname (FQDN)** <br>
+**1.02. Prepare Host O/S Centos 7 Hosts & Hostname (FQDN)** <br>
 sudo nano /etc/hosts <br>
 ```
 127.0.0.1	localhost <br>
@@ -302,7 +302,7 @@ ping vpsmeet <br>
 ping vpsmeet.idjvnix.com <br>
 <br>
 
-**1.03. Prepare Timezone, Date & NTP Synchronized** <br>
+**1.03. Prepare Host O/S Centos 7 Timezone, Date & NTP Synchronized** <br>
 sudo timedatectl list-timezones |grep Asia <br>
 sudo timedatectl set-timezone Asia/Jakarta <br>
 sudo timedatectl set-ntp on <br>
@@ -324,7 +324,7 @@ date <br>
 Thu Apr 30 06:11:58 WIB 2020 
 ```
 
-**1.04. Prepare Docker Repo, Install Docker & Install Docker Compose** <br>
+**1.04. Prepare Host O/S Centos 7 Docker Repo, Install Docker & Docker Compose** <br>
 sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine <br>
 <br>
 sudo yum check-update <br>
