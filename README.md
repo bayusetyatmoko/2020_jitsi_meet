@@ -401,7 +401,7 @@ a. If you edit file ".env" then you must remove ~/.jitsi-meet-cfg then recreate 
 <br>
 b. Backup Source Code & Config Jitsi-Meet Application using this command <br> 
 <br>
-sudo tar -czvf backup_20200508_docker-jitsi-meet.tar.gz docker-jitsi-meet/ <br>
+**sudo tar -czvf backup_20200508_docker-jitsi-meet.tar.gz docker-jitsi-meet/** <br>
 ```
 docker-jitsi-meet/ 
 docker-jitsi-meet/web/ 
@@ -604,7 +604,7 @@ docker-jitsi-meet/examples/traefik-v2/docker-compose.yml
 docker-jitsi-meet/env.example 
 docker-jitsi-meet/etherpad.yml 
 ```
-sudo tar -czvf backup_20200508_jitsi-meet-cfg.tar.gz .jitsi-meet-cfg/ <br>
+**sudo tar -czvf backup_20200508_jitsi-meet-cfg.tar.gz .jitsi-meet-cfg/** <br>
 ```
 .jitsi-meet-cfg/ 
 .jitsi-meet-cfg/web/ 
