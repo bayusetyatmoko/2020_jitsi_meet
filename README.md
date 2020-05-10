@@ -40,7 +40,7 @@ adduser bayu <br>
 usermod -aG sudo bayu <br>
 <br>
 apt install gnupg apt-transport-https <br>
-apt install iputils-ping net-tools wget git unzip nano curl elinks lynx python3 <br>
+apt install iputils-ping net-tools htop wget git unzip nano curl elinks lynx python3 <br>
 apt-get install openssh-server openssh-client openssh-sftp-server <br>
 <br>
 /usr/sbin/sshd <br>
@@ -249,8 +249,7 @@ docker push bayusetyatmoko/ub20vpsmeet:default <br>
 ## Case 1 - Install Jitsi Meet on Host O/S Centos 7 (via docker compose) 
 **1.01. Prepare Centos Repo & Install Tools** <br>
 sudo yum check-update <br>
-sudo yum install nano python3 curl elinks lynx<br>
-sudo yum install git <br>
+sudo yum install htop wget git unzip nano curl elinks lynx python3 <br>
 <br>
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash <br>
 export NVM_DIR="$HOME/.nvm" <br>
@@ -363,23 +362,23 @@ mkdir -p ~/.jitsi-meet-cfg/{web/letsencrypt,transcripts,prosody,jicofo,jvb,jigas
 <br>
 ls -lah /home/bayu/ |grep jitsi <br>
 ```
-drwxrwxr-x  14 bayu bayu 4,0K Apr 30 07:18 docker-jitsi-meet <br>
-drwxrwxr-x   9 bayu bayu 4,0K Apr 30 07:19 .jitsi-meet-cfg <br>
+drwxrwxr-x  14 bayu bayu 4,0K Apr 30 07:18 docker-jitsi-meet 
+drwxrwxr-x   9 bayu bayu 4,0K Apr 30 07:19 .jitsi-meet-cfg 
 ```
 nano .env <br>
 ```
-HTTP_PORT=80 <br>
-HTTPS_PORT=443 <br>
-TZ=Asia/Jakarta <br>
-#--- Change the setting below to suit your condition <br>
-PUBLIC_URL=https://vpsmeet.idjvnix.com <br>
-ENABLE_LETSENCRYPT=1 <br>
-#--- Change the setting below to suit your condition <br>
-LETSENCRYPT_DOMAIN=vpsmeet.idjvnix.com <br>
-#--- Change the setting below to suit your condition <br>
-LETSENCRYPT_EMAIL=bayuzzz@gmail.com <br>
-DISABLE_HTTPS=0 <br>
-ENABLE_HTTP_REDIRECT=1 <br>
+HTTP_PORT=80 
+HTTPS_PORT=443 
+TZ=Asia/Jakarta 
+#--- Change the setting below to suit your condition 
+PUBLIC_URL=https://vpsmeet.idjvnix.com 
+ENABLE_LETSENCRYPT=1 
+#--- Change the setting below to suit your condition 
+LETSENCRYPT_DOMAIN=vpsmeet.idjvnix.com 
+#--- Change the setting below to suit your condition 
+LETSENCRYPT_EMAIL=bayuzzz@gmail.com 
+DISABLE_HTTPS=0 
+ENABLE_HTTP_REDIRECT=1 
 ```
 #--- To stop command below, using "ctrl+c" <br>
 docker-compose up <br>
@@ -389,12 +388,12 @@ docker-compose up -d <br>
 <br>
 docker-compose ps -a <br>
 ```
-           Name               Command   State                        Ports                        <br>
-------------------------------------------------------------------------------------------------  <br>
-docker-jitsi-meet_jicofo_1    /init     Up                                                        <br>
-docker-jitsi-meet_jvb_1       /init     Up      0.0.0.0:10000->10000/udp, 0.0.0.0:4443->4443/tcp  <br>
-docker-jitsi-meet_prosody_1   /init     Up      5222/tcp, 5269/tcp, 5280/tcp, 5347/tcp            <br>
-docker-jitsi-meet_web_1       /init     Up      0.0.0.0:443->443/tcp, 0.0.0.0:80->80/tcp          <br>
+           Name               Command   State                        Ports                        
+------------------------------------------------------------------------------------------------  
+docker-jitsi-meet_jicofo_1    /init     Up                                                        
+docker-jitsi-meet_jvb_1       /init     Up      0.0.0.0:10000->10000/udp, 0.0.0.0:4443->4443/tcp  
+docker-jitsi-meet_prosody_1   /init     Up      5222/tcp, 5269/tcp, 5280/tcp, 5347/tcp            
+docker-jitsi-meet_web_1       /init     Up      0.0.0.0:443->443/tcp, 0.0.0.0:80->80/tcp          
 ```
 
 **Notes :** <br>
